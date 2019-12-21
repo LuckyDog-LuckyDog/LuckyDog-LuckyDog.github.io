@@ -152,6 +152,109 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-自定义DBUTILS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/21/%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS/">自定义DBUTILS --小劉</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/21/%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS/" class="archive-article-date">
+  	<time datetime="2019-12-21T02:29:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="自定义连接池"><a href="#自定义连接池" class="headerlink" title="自定义连接池"></a>自定义连接池</h1><p>下图是自定义的连接池+装饰者+jdbc工具类(很low , 见怪)<br>jdbc工具类<br><img src="https://t1.picb.cc/uploads/2019/12/21/kuS6Pt.png" alt="kuS6Pt.png"></p>
+<p>装饰者(增强连接池的close)<br><img src="https://t1.picb.cc/uploads/2019/12/21/kuSiVF.png" alt="kuSiVF.png"></p>
+<p>连接池–新建的连接调用close会被销毁<br><img src="https://t1.picb.cc/uploads/2019/12/21/kuSnGr.png" alt="kuSnGr.png"></p>
+<p>由于笔者比较菜,许多因素未考虑到,俗话说工欲善其事,必先利其器,为此选择连接池和jbbc工具包来提高效率</p>
+<h1 id="C3P0-–创建连接池"><a href="#C3P0-–创建连接池" class="headerlink" title="C3P0 –创建连接池"></a>C3P0 –创建连接池</h1><p>C3P0是一个开源的JDBC连接池，它实现了数据源和JNDI绑定，支持JDBC3规范和JDBC2的标准扩展。C3P0是异步操作的，所以一些操作时间过长的JDBC通过其它的辅助线程完成。目前使用它的开源项目有Hibernate，Spring等。C3P0有自动回收空闲连接功能<br>这里我使用的是IDEA创建—–C3P0 包来完成对连接池对象的创建和sql数据库连接对象的调用方法<br><img src="https://t1.picb.cc/uploads/2019/12/21/ku0qwM.png" alt="ku0qwM.png"></p>
+<p><strong>这里有几点需要注意 :</strong></p>
+<ul>
+<li>jar里面的配置文件必须拷贝到src项目下的resource标识文件夹中</li>
+<li>配置的文件不能更改</li>
+<li>配置的文件的属性名不能修改,否则框架读取不到信息<br><a href="https://www.picb.cc/image/ku0rbe" target="_blank" rel="noopener"><img src="https://t1.picb.cc/uploads/2019/12/21/ku0rbe.png" alt="ku0rbe.png"></a><br><a href="https://www.picb.cc/image/ku0Mh6" target="_blank" rel="noopener"><img src="https://t1.picb.cc/uploads/2019/12/21/ku0Mh6.png" alt="ku0Mh6.png"></a></li>
+</ul>
+<h1 id="DBUTILS"><a href="#DBUTILS" class="headerlink" title="DBUTILS"></a>DBUTILS</h1><p>DbUtils是Apache组织提供的一个对JDBC进行简单封装的开源工具类库，使用它能够简化JDBC应用程序的开发，同时也不会影响程序的性能 ,简而言之就是—–简化JDBC操作数据库的步骤</p>
+<h2 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h2><p>数据库查询出来的数据一定会有地方来进行存储 , 封装数据 , 它就是javabean(创建一个Person类) , 只是多了如下要求 : </p>
+<ul>
+<li>私有字段  </li>
+<li>提供公共的get/set方法</li>
+<li>无参构造</li>
+<li>实现Serializable</li>
+<li>字段:  全局/成员变量  eg: <code>private String username</code></li>
+<li>属性: 去掉get或者set首字母变小写  eg: <code>setUsername-去掉set-&gt;Username-首字母变小写-&gt;username</code></li>
+</ul>
+<h2 id="利用DBUTILS进行增删改"><a href="#利用DBUTILS进行增删改" class="headerlink" title="利用DBUTILS进行增删改"></a>利用DBUTILS进行增删改</h2><p><img src="https://t1.picb.cc/uploads/2019/12/21/kuSlY0.png" alt="kuSlY0.png"></p>
+<h2 id="利用DBUTILS进行查-结果封装在JavaBean里面"><a href="#利用DBUTILS进行查-结果封装在JavaBean里面" class="headerlink" title="利用DBUTILS进行查,结果封装在JavaBean里面"></a>利用DBUTILS进行查,结果封装在JavaBean里面</h2><p><img src="https://t1.picb.cc/uploads/2019/12/21/kuSCu1.png" alt="kuSCu1.png"></p>
+<h1 id="自定义DBUTILS功能—-增删改查"><a href="#自定义DBUTILS功能—-增删改查" class="headerlink" title="自定义DBUTILS功能—-增删改查"></a>自定义DBUTILS功能—-增删改查</h1><p>秉承着知其然 , 亦知其所以然 , 自己玩玩o(∩_∩)o 哈哈</p>
+<h2 id="增删改"><a href="#增删改" class="headerlink" title="增删改"></a>增删改</h2><p><img src="https://t1.picb.cc/uploads/2019/12/21/kuScvd.png" alt="kuScvd.png"></p>
+<h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><p>分析BeanHandler , MapHandler , BeanListHandler , MapListHandler发现他们一个共同的巴巴–ResultSetHandler , 这里我只对BeanHandler进行分析 , 其中Type就是beanhandler传入的字节码对象 , 根据底层源码描述</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Create a JavaBean from the column values in one &lt;code&gt;ResultSet&lt;/code&gt;</span></span><br><span class="line"><span class="comment">   * row.  The &lt;code&gt;ResultSet&lt;/code&gt; should be positioned on a valid row before</span></span><br><span class="line"><span class="comment">   * passing it to this method.  Implementations of this method must not</span></span><br><span class="line"><span class="comment">   * alter the row position of the &lt;code&gt;ResultSet&lt;/code&gt;.</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> &lt;T&gt; The type of bean to create 创建bean对象的类型</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> rs ResultSet that supplies the bean data 结果集rs提供数据</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> type Class from which to create the bean instance 对象的字节码</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@throws</span> SQLException if a database access error occurs</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> the newly created bean 返回一个新的bean</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">     &lt;T&gt; <span class="function">T <span class="title">toBean</span><span class="params">(ResultSet rs, Class&lt;T&gt; type)</span> <span class="keyword">throws</span> SQLException</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="https://t1.picb.cc/uploads/2019/12/21/kuS46u.png" alt="kuS46u.png"></p>
+<p>一句话 : bean做为一个载体封装sql查询的数据 , ResultSetHandler做为获取bean对象和sql结果集的中间商<br>依照这个思路,这里我<strong>重载</strong>单条查询和多条查询的query方法 ,开工 ,见下图</p>
+<ul>
+<li>单条查询<br><img src="https://t1.picb.cc/uploads/2019/12/21/kuBKMu.png" alt="kuBKMu.png"></li>
+</ul>
+<p><em>getDataAandSetDate方法</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuBEfa.png" alt="kuBEfa.png"></p>
+<p><em>单条查询测试结果</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuBYFD.png" alt="kuBYFD.png"></p>
+<ul>
+<li>多条查询<br><em>list</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuBoVv.png" alt="kuBoVv.png"></li>
+</ul>
+<p><em>getDataAandListSetDate方法</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuFJYW.png" alt="kuFJYW.png"><br><em>getDataAandMapSetDate方法</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuFguw.png" alt="kuFguw.png"><br><em>测试结果</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuFepc.png" alt="kuFepc.png"></p>
+<p>由于MapListHandler我通过反射我获取不到Bean对象,所以失败,但是可以通过重新定义MyMapListHandler赋予泛型对象,这样就和List差不多了,</p>
+<p><img src="https://t1.picb.cc/uploads/2019/12/21/kuFguw.png" alt="kuFguw.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>通过这次 , 加深了对反射和泛型的运用 ,自此结束;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/21/%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-This-is-my-first-blog-in-my-life-小劉" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
