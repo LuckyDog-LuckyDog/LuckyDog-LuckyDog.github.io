@@ -6,39 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>自定义DBUTILS --小劉 | 爱学习,爱生活</title>
+  <title>汤姆猫的Session | 爱学习,爱生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自定义连接池Connection对象在JDBC使用的时候就会去创建一个对象,使用结束以后就会将这个对象给销毁了(close).每次创建和销毁对象都是耗时操作.需要使用连接池对其进行优化.程序初始化的时候，初始化多个连接,将多个连接放入到池(集合)中.每次获取的时候,都可以直接从连接池中进行获取.使用结束以后,将连接归还到池中.  使用连接池的目的: 可以让连接得到复用, 避免浪费">
+  <meta name="description" content="汤姆猫服务器之Sessionsession是服务器端的技术。服务器为每一个浏览器开辟一块内存空间，即session对象。由于session对象是每一个浏览器特有的，所有用户的记录可以存放在session对象中。同时，每一个session对象都对应一个sessionId，服务器把sessionId写到cookie中，再次访问的时候，浏览器把sessionId带过来，找到对应的session对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义DBUTILS --小劉">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;21&#x2F;%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS&#x2F;index.html">
+<meta property="og:title" content="汤姆猫的Session">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;27&#x2F;%E6%B1%A4%E5%A7%86%E7%8C%AB%E7%9A%84Session&#x2F;index.html">
 <meta property="og:site_name" content="爱学习,爱生活">
-<meta property="og:description" content="自定义连接池Connection对象在JDBC使用的时候就会去创建一个对象,使用结束以后就会将这个对象给销毁了(close).每次创建和销毁对象都是耗时操作.需要使用连接池对其进行优化.程序初始化的时候，初始化多个连接,将多个连接放入到池(集合)中.每次获取的时候,都可以直接从连接池中进行获取.使用结束以后,将连接归还到池中.  使用连接池的目的: 可以让连接得到复用, 避免浪费">
+<meta property="og:description" content="汤姆猫服务器之Sessionsession是服务器端的技术。服务器为每一个浏览器开辟一块内存空间，即session对象。由于session对象是每一个浏览器特有的，所有用户的记录可以存放在session对象中。同时，每一个session对象都对应一个sessionId，服务器把sessionId写到cookie中，再次访问的时候，浏览器把sessionId带过来，找到对应的session对象">
 <meta property="og:locale" content="中文">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuS6Pt.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuSiVF.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuSnGr.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;ku0qwM.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;ku0rbe.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;ku0Mh6.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuSlY0.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuSCu1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuScvd.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuS46u.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuBKMu.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuBEfa.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuBYFD.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuBoVv.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuFJYW.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuFepc.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;22&#x2F;kuLNRR.png">
-<meta property="article:published_time" content="2019-12-21T02:29:04.000Z">
-<meta property="article:modified_time" content="2019-12-22T09:38:43.800Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;27&#x2F;kCXg4c.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;27&#x2F;kCXkbK.png">
+<meta property="article:published_time" content="2019-12-27T12:29:19.000Z">
+<meta property="article:modified_time" content="2019-12-27T13:45:18.180Z">
 <meta property="article:author" content="小劉">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="Tomcat">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuS6Pt.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;27&#x2F;kCXg4c.png">
   
     <link rel="alternative" href="/atom.xml" title="爱学习,爱生活" type="application/atom+xml">
   
@@ -70,15 +54,15 @@
 		<a href="/" class="profilepic">
 			<img src="https://t1.picb.cc/uploads/2019/12/21/kuxyGM.th.jpg" class="js-avatar">
 		</a>
-		<!--人体时钟背景透明-->
-<script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
+
 		<hgroup>
+		
 		  <h1 class="header-author"><a href="/">小劉</a></h1>
 		</hgroup>
+
 		
 		
-		
-	
+
 		
 		
 		<nav class="header-menu">
@@ -95,9 +79,7 @@
 		
 		
 		
-		<nav>
-			<a>文章总数 4</a>
-		</nav>
+		
 		<nav class="header-smart-menu">
     		
     			
@@ -109,6 +91,11 @@
     			
             
 		</nav>
+		<nav>
+			<a>文章总数 4</a>
+		</nav>
+		
+		
 		<nav class="header-nav">
 			<div class="social">
 				
@@ -122,12 +109,36 @@
 		        
 			</div>
 					</nav>
+					
+		
+								
 <div class="header-music">
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=0 height=0 src="//music.163.com/outchain/player?type=2&id=1350336126&auto=1&height=0"></iframe>
 </div>
 	
 	</header>		
 </div>
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
@@ -193,7 +204,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-自定义DBUTILS" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-汤姆猫的Session" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
@@ -201,13 +212,13 @@
         
   
     <h1 class="article-title" itemprop="name">
-      自定义DBUTILS --小劉
+      汤姆猫的Session
     </h1>
   
 
         
-        <a href="/2019/12/21/%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS/" class="archive-article-date">
-  	<time datetime="2019-12-21T02:29:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-21</time>
+        <a href="/2019/12/27/%E6%B1%A4%E5%A7%86%E7%8C%AB%E7%9A%84Session/" class="archive-article-date">
+  	<time datetime="2019-12-27T12:29:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-27</time>
 </a>
         
 		
@@ -224,57 +235,131 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自定义连接池"><a href="#自定义连接池" class="headerlink" title="自定义连接池"></a>自定义连接池</h1><p>Connection对象在JDBC使用的时候就会去创建一个对象,使用结束以后就会将这个对象给销毁了(close).每次创建和销毁对象都是耗时操作.需要使用连接池对其进行优化.程序初始化的时候，初始化多个连接,将多个连接放入到池(集合)中.每次获取的时候,都可以直接从连接池中进行获取.使用结束以后,将连接归还到池中.</p>
-<ul>
-<li>使用连接池的目的: 可以让连接得到复用, 避免浪费</li>
-</ul>
+        <h1 id="汤姆猫服务器之Session"><a href="#汤姆猫服务器之Session" class="headerlink" title="汤姆猫服务器之Session"></a>汤姆猫服务器之Session</h1><p>session是服务器端的技术。服务器为每一个浏览器开辟一块内存空间，即session对象。由于session对象是每一个浏览器特有的，所有用户的记录可以存放在session对象中。同时，每一个session对象都对应一个sessionId，服务器把sessionId写到cookie中，再次访问的时候，浏览器把sessionId带过来，找到对应的session对象</p>
 <a id="more"></a>
 
-<p>下图是自定义的连接池+装饰者+jdbc工具类(很low , 见怪)<br>jdbc工具类<br><img src="https://t1.picb.cc/uploads/2019/12/21/kuS6Pt.png" alt="kuS6Pt.png"></p>
-<p>装饰者(增强连接池的close)<br><img src="https://t1.picb.cc/uploads/2019/12/21/kuSiVF.png" alt="kuSiVF.png"></p>
-<p>连接池–新建的连接调用close会被销毁<br><img src="https://t1.picb.cc/uploads/2019/12/21/kuSnGr.png" alt="kuSnGr.png"></p>
-<p>由于笔者比较菜,许多因素未考虑到,俗话说工欲善其事,必先利其器,为此选择连接池和jbbc工具包来提高效率</p>
-<h1 id="C3P0-–创建连接池"><a href="#C3P0-–创建连接池" class="headerlink" title="C3P0 –创建连接池"></a>C3P0 –创建连接池</h1><p>C3P0是一个开源的JDBC连接池，它实现了数据源和JNDI绑定，支持JDBC3规范和JDBC2的标准扩展。C3P0是异步操作的，所以一些操作时间过长的JDBC通过其它的辅助线程完成。目前使用它的开源项目有Hibernate，Spring等。C3P0有自动回收空闲连接功能<br>这里我使用的是IDEA创建—–C3P0 包来完成对连接池对象的创建和sql数据库连接对象的调用方法<br><img src="https://t1.picb.cc/uploads/2019/12/21/ku0qwM.png" alt="ku0qwM.png"></p>
-<p><strong>这里有几点需要注意 :</strong></p>
-<ul>
-<li>jar里面的配置文件必须拷贝到src项目下的resource标识文件夹中</li>
-<li>配置的文件不能更改</li>
-<li>配置的文件的属性名不能修改,否则框架读取不到信息<br><a href="https://www.picb.cc/image/ku0rbe" target="_blank" rel="noopener"><img src="https://t1.picb.cc/uploads/2019/12/21/ku0rbe.png" alt="ku0rbe.png"></a><br><a href="https://www.picb.cc/image/ku0Mh6" target="_blank" rel="noopener"><img src="https://t1.picb.cc/uploads/2019/12/21/ku0Mh6.png" alt="ku0Mh6.png"></a></li>
+<h2 id="为什么有了Cookie还有Session"><a href="#为什么有了Cookie还有Session" class="headerlink" title="为什么有了Cookie还有Session?"></a>为什么有了Cookie还有Session?</h2><p>cookie只能存放字符串,而session能够存放任意类型的数据Object<br>cookied存在数据的大小有限制,而session存放数据没有大小限制<br>cookie存放数据不安全,session存放在服务器安全性高<br>但是cookie能够实现关闭浏览器之后几天还能存放数据,session没有,而且session的底层是依赖cookie , 所以两者无法互相取代</p>
+<h2 id="Session的执行原理"><a href="#Session的执行原理" class="headerlink" title="Session的执行原理"></a>Session的执行原理</h2><ul>
+<li>Servlet获取Cookie中的信息<br>1、获得cookie中传递过来的SessionId(cookie)<br>2、如果Cookie中没有Jsessionid,则创建session对象<br>3、如果Cookie中有sessionid,找指定的session对象<br>   如果有sessionid并且session对象存在，则直接使用<br>   如果有sessionid，但session对象销毁了，则执行第二步</li>
 </ul>
-<h1 id="DBUTILS"><a href="#DBUTILS" class="headerlink" title="DBUTILS"></a>DBUTILS</h1><p>DbUtils是Apache组织提供的一个对JDBC进行简单封装的开源工具类库，使用它能够简化JDBC应用程序的开发，同时也不会影响程序的性能 ,简而言之就是—–简化JDBC操作数据库的步骤</p>
-<h2 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h2><p>数据库查询出来的数据一定会有地方来进行存储 , 封装数据 , 它就是javabean(创建一个Person类) , 只是多了如下要求 : </p>
-<ul>
-<li>私有字段  </li>
-<li>提供公共的get/set方法</li>
-<li>无参构造</li>
-<li>实现Serializable</li>
-<li>字段:  全局/成员变量  eg: <code>private String username</code></li>
-<li>属性: 去掉get或者set首字母变小写  eg: <code>setUsername-去掉set-&gt;Username-首字母变小写-&gt;username</code></li>
+<h3 id="关闭浏览器之后-能否获取之前session中存取的数据"><a href="#关闭浏览器之后-能否获取之前session中存取的数据" class="headerlink" title="关闭浏览器之后,能否获取之前session中存取的数据?"></a>关闭浏览器之后,能否获取之前session中存取的数据?</h3><p>不能 , 因为cookie默认的生命周期是一次会话请求,所以携带cookie的sessionID就会被销毁,下次访问请求,服务器就找不到cookiedID</p>
+<h3 id="关闭浏览器之后-之前的session对象销毁没有"><a href="#关闭浏览器之后-之前的session对象销毁没有" class="headerlink" title="关闭浏览器之后,之前的session对象销毁没有?"></a>关闭浏览器之后,之前的session对象销毁没有?</h3><p>没有,session对象存放在服务器上</p>
+<h3 id="之前的session没有销毁-那么为什么获取不到他里面数据"><a href="#之前的session没有销毁-那么为什么获取不到他里面数据" class="headerlink" title="之前的session没有销毁 ,那么为什么获取不到他里面数据?"></a>之前的session没有销毁 ,那么为什么获取不到他里面数据?</h3><p>没有销毁,session是基于cookie, jsessionId保存到cookie里面的, 默认情况下cookie是会话级别,浏览器关闭了cookie就是消失了,也就是说==sessionId消失了==, 从而找不到对应的session对象了, 就不能使用了.<br>​    解决方案: 自己获得sessionId, 自己写给浏览器 设置Cookie的有效时长, 这个Cookie的key必须: <code>JSESSIONID</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String id =request.getsession().getId();</span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"JSESSIONID"</span>,id);</span><br><span class="line">cookie.setMaxAge = (<span class="number">7</span>*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>);</span><br><span class="line">respone.addCookie(cookied);</span><br></pre></td></tr></table></figure>
+<h3 id="题外-三个域对象比较"><a href="#题外-三个域对象比较" class="headerlink" title="(题外)三个域对象比较"></a>(题外)三个域对象比较</h3><table>
+<thead>
+<tr>
+<th>域对象</th>
+<th>销毁</th>
+<th>创建</th>
+<th>作用范围</th>
+<th>应用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ServletContext</td>
+<td>服务器正常关闭/项目从服务器移除</td>
+<td>服务器启动</td>
+<td>整个项目</td>
+<td>记录访问次数,聊天室</td>
+</tr>
+<tr>
+<td>HttpSession</td>
+<td>session过期（默认30分钟）/调用invalidate(）方法/服务器==异常==关闭</td>
+<td>==没有sessionID调 用==request.getSession()方法</td>
+<td>会话(多次请求)</td>
+<td>验证码校验, ==保存用户登录状态==等</td>
+</tr>
+<tr>
+<td>HttpServletRequest</td>
+<td>响应这个请求(或者请求已经接收了)</td>
+<td>来了请求</td>
+<td>一次请求</td>
+<td>servletA和jsp（servletB）之间数据传递(转发的时候存数据)</td>
+</tr>
+</tbody></table>
+<h3 id="三个域对象怎么选择"><a href="#三个域对象怎么选择" class="headerlink" title="三个域对象怎么选择?"></a>三个域对象怎么选择?</h3><p>​    一般情况下, 最小的可以解决就用最小的.(eg: 重定向, 多次请求, 会话范围, 用session;  如果是转发,一般选择request)</p>
+<h2 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h2><p>为了展示动态数据,将html与java结合生成的技术</p>
+<ol>
+<li>JSP: java 服务器页面, 本质是Servlet</li>
+<li>JSP产生的原因: Servlet在动态展示很麻烦, jsp动态展示方便一点</li>
+</ol>
+<h3 id="JSP脚本"><a href="#JSP脚本" class="headerlink" title="JSP脚本"></a>JSP脚本</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>翻译成Servlet对应的部分</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;%…%&gt;:Java程序片段</td>
+<td>翻译成Service()方法里面的内容, 局部的</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;%=…%&gt;:输出表达式</td>
+<td>翻译成Service()方法里面的内容,相当于调用out.print()</td>
+<td>输出表达式不能以;结尾</td>
+</tr>
+<tr>
+<td>&lt;%!…%&gt;:声明成员变量</td>
+<td>翻译成Servlet类里面的内容</td>
+<td></td>
+</tr>
+<tr>
+<td>### JSP注释</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>注释类型(3种)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTML注释<!--HTML注释--></td>
+</tr>
+<tr>
+<td>JAVA注释     //; /* */</td>
+</tr>
+<tr>
+<td>JSP注释;     &lt;%–注释内容–%&gt;</td>
+</tr>
+</tbody></table>
+<h1 id="打码环节"><a href="#打码环节" class="headerlink" title="打码环节"></a>打码环节</h1><p>为了加深对Session和JSP的理解和练习 , 做了如下练习,先上图</p>
+<h2 id="界面展示-有点丑-不-是很丑-哈哈"><a href="#界面展示-有点丑-不-是很丑-哈哈" class="headerlink" title="界面展示(有点丑,不,是很丑,哈哈)"></a>界面展示(有点丑,不,是很丑,哈哈)</h2><p><img src="https://t1.picb.cc/uploads/2019/12/27/kCXg4c.png" alt="kCXg4c.png"></p>
+<h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><p><img src="https://t1.picb.cc/uploads/2019/12/27/kCXkbK.png" alt="kCXkbK.png"></p>
+<h2 id="打码"><a href="#打码" class="headerlink" title="打码"></a>打码</h2><ul>
+<li><p>处理按钮+的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * author:小刘</span></span><br><span class="line"><span class="comment"> * 日期: 2019/12/27 17:07</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(value = <span class="string">"/ChooseServlet"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ChooseServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        HttpSession session = request.getSession();</span><br><span class="line">        <span class="comment">//应该要连数据库的,时间紧,用数组测试</span></span><br><span class="line">        String[] productNames =&#123;<span class="string">"xiaomi"</span>,<span class="string">"apple"</span>,<span class="string">"jialaoban"</span>,<span class="string">"jiazhensan"</span>,<span class="string">"wangxiaoer"</span>&#125;;</span><br><span class="line">        <span class="comment">//获取jsp传输过来的index</span></span><br><span class="line">        <span class="keyword">int</span> index = Integer.parseInt(request.getParameter(<span class="string">"name"</span>));</span><br><span class="line">        <span class="comment">//获取请求的商品名称</span></span><br><span class="line">        String productName = productNames[index];</span><br><span class="line">        System.out.println(productName);</span><br><span class="line">        <span class="comment">//获取"Car"Session</span></span><br><span class="line">        LinkedHashMap&lt;String, Integer&gt; map = (LinkedHashMap&lt;String, Integer&gt;)session.getAttribute(<span class="string">"Car"</span>);</span><br><span class="line">        <span class="comment">//如果用户第一次,就没有session,那就没有map,那增加一个容器</span></span><br><span class="line">        <span class="keyword">if</span>(map==<span class="keyword">null</span>)&#123;</span><br><span class="line">             map = <span class="keyword">new</span> LinkedHashMap&lt;String, Integer&gt;();</span><br><span class="line">            map.put(productName,<span class="number">1</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//判断用户是否有添加商品</span></span><br><span class="line">            Integer number = map.get(productName);</span><br><span class="line">            <span class="keyword">if</span>(map.get(productName)!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="comment">//有,+1</span></span><br><span class="line">             map.put(productName,number+<span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//没有,赋值1</span></span><br><span class="line">                map.put(productName,<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(map);</span><br><span class="line">        <span class="comment">//将信息转发给Car Servlet</span></span><br><span class="line">        session.setAttribute(<span class="string">"Car"</span>,map);</span><br><span class="line">        <span class="comment">//回转页面</span></span><br><span class="line">        response.sendRedirect(<span class="string">"index.jsp"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>处理按钮-的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashMap;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * author:小刘</span></span><br><span class="line"><span class="comment"> * 日期: 2019/12/27 20:18</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(value = <span class="string">"/Choose"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Choose</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        HttpSession session = request.getSession();</span><br><span class="line">        String[] productNames =&#123;<span class="string">"xiaomi"</span>,<span class="string">"apple"</span>,<span class="string">"jialaoban"</span>,<span class="string">"jiazhensan"</span>,<span class="string">"wangxiaoer"</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> index = Integer.parseInt(request.getParameter(<span class="string">"name"</span>));</span><br><span class="line">        String productName = productNames[index];</span><br><span class="line">        System.out.println(productName);</span><br><span class="line">        LinkedHashMap&lt;String, Integer&gt; map = (LinkedHashMap&lt;String, Integer&gt;)session.getAttribute(<span class="string">"Car"</span>);</span><br><span class="line">        <span class="comment">//如果没有session,增加容器</span></span><br><span class="line">        <span class="comment">//防止第一可能按 - 按钮导致负数</span></span><br><span class="line">        <span class="keyword">if</span>(map==<span class="keyword">null</span>)&#123;</span><br><span class="line">            map = <span class="keyword">new</span> LinkedHashMap&lt;String, Integer&gt;();</span><br><span class="line">            map.put(productName,<span class="number">0</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            Integer number = map.get(productName);</span><br><span class="line">            <span class="keyword">if</span>(map.get(productName)!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//防止出现负数</span></span><br><span class="line">                <span class="keyword">if</span>(number-<span class="number">1</span>&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">                    map.put(productName,number-<span class="number">1</span>);</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;map.put(productName,<span class="number">0</span>);&#125;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                map.put(productName,<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(map);</span><br><span class="line">        <span class="comment">//将信息转发给Car Servlet</span></span><br><span class="line">        session.setAttribute(<span class="string">"Car"</span>,map);</span><br><span class="line">        response.sendRedirect(<span class="string">"index.jsp"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>购物车代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * author:小刘</span></span><br><span class="line"><span class="comment"> * 日期: 2019/12/27 16:57</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(value = <span class="string">"/Car"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//回应浏览器按utf-8解码</span></span><br><span class="line">        response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br><span class="line">        HttpSession session = request.getSession();</span><br><span class="line">       Map&lt;String,Integer&gt; map = (Map)session.getAttribute(<span class="string">"Car"</span>);</span><br><span class="line">            Set&lt;String&gt; strings = map.keySet();</span><br><span class="line">            <span class="keyword">for</span> (String string : strings) &#123;</span><br><span class="line">                Integer number = map.get(string);</span><br><span class="line">                <span class="comment">//将数据显示在浏览器上</span></span><br><span class="line">                response.getWriter().write(<span class="string">"&lt;h1&gt;"</span>+string+<span class="string">"数量为"</span>+number+<span class="string">"&lt;/h1&gt;&lt;br/&gt;"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JSP(html与java结合体)</p>
+</li>
 </ul>
-<h2 id="利用DBUTILS进行增删改"><a href="#利用DBUTILS进行增删改" class="headerlink" title="利用DBUTILS进行增删改"></a>利用DBUTILS进行增删改</h2><p><img src="https://t1.picb.cc/uploads/2019/12/21/kuSlY0.png" alt="kuSlY0.png"></p>
-<h2 id="利用DBUTILS进行查-结果封装在JavaBean里面"><a href="#利用DBUTILS进行查-结果封装在JavaBean里面" class="headerlink" title="利用DBUTILS进行查,结果封装在JavaBean里面"></a>利用DBUTILS进行查,结果封装在JavaBean里面</h2><p><img src="https://t1.picb.cc/uploads/2019/12/21/kuSCu1.png" alt="kuSCu1.png"></p>
-<h1 id="自定义DBUTILS功能—-增删改查"><a href="#自定义DBUTILS功能—-增删改查" class="headerlink" title="自定义DBUTILS功能—-增删改查"></a>自定义DBUTILS功能—-增删改查</h1><p>秉承着知其然 , 亦知其所以然 , 自己玩玩o(∩_∩)o 哈哈</p>
-<h2 id="增删改"><a href="#增删改" class="headerlink" title="增删改"></a>增删改</h2><p><img src="https://t1.picb.cc/uploads/2019/12/21/kuScvd.png" alt="kuScvd.png"></p>
-<h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><p>分析BeanHandler , MapHandler , BeanListHandler , MapListHandler发现他们一个共同的巴巴–ResultSetHandler , 这里我只对BeanHandler进行分析 , 其中Type就是beanhandler传入的字节码对象 , 根据底层源码描述</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * Create a JavaBean from the column values in one &lt;code&gt;ResultSet&lt;/code&gt;</span></span><br><span class="line"><span class="comment">   * row.  The &lt;code&gt;ResultSet&lt;/code&gt; should be positioned on a valid row before</span></span><br><span class="line"><span class="comment">   * passing it to this method.  Implementations of this method must not</span></span><br><span class="line"><span class="comment">   * alter the row position of the &lt;code&gt;ResultSet&lt;/code&gt;.</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> &lt;T&gt; The type of bean to create 创建bean对象的类型</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> rs ResultSet that supplies the bean data 结果集rs提供数据</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> type Class from which to create the bean instance 对象的字节码</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@throws</span> SQLException if a database access error occurs</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> the newly created bean 返回一个新的bean</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">     &lt;T&gt; <span class="function">T <span class="title">toBean</span><span class="params">(ResultSet rs, Class&lt;T&gt; type)</span> <span class="keyword">throws</span> SQLException</span>;</span><br></pre></td></tr></table></figure>
-<p><img src="https://t1.picb.cc/uploads/2019/12/21/kuS46u.png" alt="kuS46u.png"></p>
-<p>一句话 : bean做为一个载体封装sql查询的数据 , ResultSetHandler做为获取bean对象和sql结果集的中间商<br>依照这个思路,这里我<strong>重载</strong>单条查询和多条查询的query方法 ,开工 ,见下图</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;$Title$&lt;/title&gt;</span><br><span class="line">      &lt;%</span><br><span class="line">          Integer number = <span class="number">0</span>;</span><br><span class="line">          Integer number1= <span class="number">0</span>;</span><br><span class="line">          Integer number2= <span class="number">0</span>;</span><br><span class="line">          Integer number4= <span class="number">0</span>;</span><br><span class="line">          Integer number3= <span class="number">0</span>;</span><br><span class="line">          Map&lt;String, Integer&gt; map = (Map) session.getAttribute(<span class="string">"Car"</span>);</span><br><span class="line">          <span class="keyword">if</span>(map!=<span class="keyword">null</span>)&#123;</span><br><span class="line">              Set&lt;String&gt; strings = map.keySet();</span><br><span class="line">              <span class="keyword">for</span> (String string : strings) &#123;</span><br><span class="line">                  <span class="keyword">if</span> (<span class="string">"xiaomi"</span>.equals(string)) &#123;</span><br><span class="line">                      number = map.get(<span class="string">"xiaomi"</span>);</span><br><span class="line">                  &#125;</span><br><span class="line">                  <span class="keyword">if</span> (<span class="string">"apple"</span>.equals(string)) &#123;</span><br><span class="line">                      number1 = map.get(<span class="string">"apple"</span>);</span><br><span class="line">                  &#125;</span><br><span class="line">                  <span class="keyword">if</span> (<span class="string">"jialaoban"</span>.equals(string)) &#123;</span><br><span class="line">                      number2 = map.get(<span class="string">"jialaoban"</span>);</span><br><span class="line">                  &#125;</span><br><span class="line">                  <span class="keyword">if</span> (<span class="string">"jiazhensan"</span>.equals(string)) &#123;</span><br><span class="line">                      number3 = map.get(<span class="string">"jiazhensan"</span>);</span><br><span class="line">                  &#125;</span><br><span class="line">                  <span class="keyword">if</span> (<span class="string">"wangxiaoer"</span>.equals(string)) &#123;</span><br><span class="line">                      number4 = map.get(<span class="string">"wangxiaoer"</span>);</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      %&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;center&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">  &lt;h1&gt;商品列表&lt;/h1&gt;</span><br><span class="line">        小米&lt;a href="ChooseServlet?name=0" target="_self" a&gt;&lt;input type="button" name="0" value="+" &gt;&lt;/a&gt;&lt;%=number%&gt;&lt;a href="Choose?name=0" target="_self"&gt;&lt;input type="button" name="0" value="-" &gt;&lt;/a&gt;&lt;br&gt;</span><br><span class="line">        苹果&lt;a href="ChooseServlet?name=1"target="_self"&gt;&lt;input type="button"  name="1" value="+"&gt;&lt;/a&gt;&lt;%=number1%&gt;&lt;a href="Choose?name=1"target="_self"&gt;&lt;input type="button"  name="1" value="-"&gt;&lt;/a&gt;&lt;br&gt;</span><br><span class="line">        家老班&lt;a href="ChooseServlet?name=2"target="_self"&gt;&lt;input type="button" name="2"value="+" &gt;&lt;/a&gt;&lt;%=number2%&gt;&lt;a href="Choose?name=2"target="_self"&gt;&lt;input type="button" name="2"value="-" &gt;&lt;/a&gt;&lt;br&gt;</span><br><span class="line">        家政三&lt;a href="ChooseServlet?name=3"target="_self"&gt;&lt;input type="button"name="3" value="+" &gt;&lt;/a&gt;&lt;%=number3%&gt;&lt;a href="Choose?name=3"target="_self"&gt;&lt;input type="button"name="3" value="-" &gt;&lt;/a&gt;&lt;br&gt;</span><br><span class="line">        王小二&lt;a href="ChooseServlet?name=4"target="_self"&gt;&lt;input type="button"name="4" value="+" &gt;&lt;/a&gt;&lt;%=number4%&gt;&lt;a href="Choose?name=4"target="_self"&gt;&lt;input type="button"name="4" value="-" &gt;&lt;/a&gt;&lt;br&gt;</span><br><span class="line">       &lt;a href="Car"&gt;跳转至购物车&lt;/a&gt; &lt;br&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">  &lt;/center&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>JSP中内置了session对象 ,查看了D:\Java\jdk1.8.0_171\apache-tomcat-8.5.27\work\Catalina\localhost\ROOT\org\apache\jsp\index_jsp.java的转译文件,发现java已经自动帮我们创建了 , 加入不想自动添加,在开头写上session=false 就行</p>
 <ul>
-<li>单条查询<br><img src="https://t1.picb.cc/uploads/2019/12/21/kuBKMu.png" alt="kuBKMu.png"></li>
+<li>汤姆猫的配置文件web.xml</li>
 </ul>
-<p><em>getDataAandSetDate方法</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuBEfa.png" alt="kuBEfa.png"></p>
-<p><em>单条查询测试结果</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuBYFD.png" alt="kuBYFD.png"></p>
+<p>发现原来tomcat是通过 jspServlet和 defaultServlet来进行处理请求 ,启动服务器自动加载,等级为3</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;jsp&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">org</span>.<span class="title">apache</span>.<span class="title">jasper</span>.<span class="title">servlet</span>.<span class="title">JspServlet</span>&lt;/<span class="title">servlet</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">            &lt;<span class="title">param</span>-<span class="title">name</span>&gt;<span class="title">fork</span>&lt;/<span class="title">param</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">            &lt;<span class="title">param</span>-<span class="title">value</span>&gt;<span class="title">false</span>&lt;/<span class="title">param</span>-<span class="title">value</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;/<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">            &lt;<span class="title">param</span>-<span class="title">name</span>&gt;<span class="title">xpoweredBy</span>&lt;/<span class="title">param</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">            &lt;<span class="title">param</span>-<span class="title">value</span>&gt;<span class="title">false</span>&lt;/<span class="title">param</span>-<span class="title">value</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;/<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">load</span>-<span class="title">on</span>-<span class="title">startup</span>&gt;3&lt;/<span class="title">load</span>-<span class="title">on</span>-<span class="title">startup</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"><span class="class">   &lt;!-- <span class="title">The</span> <span class="title">mapping</span> <span class="title">for</span> <span class="title">the</span> <span class="title">default</span> <span class="title">servlet</span> --&gt;</span></span><br><span class="line"><span class="class">&lt;<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">&lt;<span class="title">servlet</span>-<span class="title">name</span>&gt;<span class="title">default</span>&lt;/<span class="title">servlet</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;/&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    &lt;!-- <span class="title">The</span> <span class="title">mappings</span> <span class="title">for</span> <span class="title">the</span> <span class="title">JSP</span> <span class="title">servlet</span> --&gt;</span></span><br><span class="line"><span class="class">&lt;<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">servlet</span>-<span class="title">name</span>&gt;<span class="title">jsp</span>&lt;/<span class="title">servlet</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;*.<span class="title">jsp</span>&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;*.<span class="title">jspx</span>&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>多条查询<br><em>list</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuBoVv.png" alt="kuBoVv.png"></li>
+<li>写到这里突然发现还有一个清空购物车的功能未写,即清除session<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * author:小刘</span></span><br><span class="line"><span class="comment"> * 日期: 2019/12/27 21:24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(value = <span class="string">"/ClearServlet"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClearServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        doGet(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        HttpSession session = request.getSession();</span><br><span class="line">        <span class="keyword">if</span>(session!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//session销毁</span></span><br><span class="line">            session.invalidate();</span><br><span class="line">        &#125;</span><br><span class="line">        response.sendRedirect(<span class="string">"index.jsp"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//jsp</span></span><br><span class="line">  &lt;a href="ClearServlet"&gt;清空购物车&lt;/a&gt;&lt;br&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
 </ul>
-<p><em>getDataAandListSetDate方法</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuFJYW.png" alt="kuFJYW.png"><br><del><em>getDataAandMapSetDate方法</em></del>(<br><em>测试结果</em><br><img src="https://t1.picb.cc/uploads/2019/12/21/kuFepc.png" alt="kuFepc.png"></p>
-<p><del>由于MapListHandler我通过反射我获取不到Bean对象,所以失败,但是可以通过重新定义MyMapListHandler赋予泛型对象,这样就和List差不多了,</del></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>通过这次 , 加深了对反射和泛型的运用 ,自此结束;</p>
-<p>————————————————-我是分割线——————————————————–</p>
-<h2 id="重写MapListHandler的query方法"><a href="#重写MapListHandler的query方法" class="headerlink" title="重写MapListHandler的query方法"></a>重写MapListHandler的query方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重写MapListHandler的query方法</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; List&lt;Map&lt;String,Object&gt;&gt; query(String sql,ResultSetHandler&lt;T&gt; handler, Object... parament) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        PreparedStatement pstm = connection.prepareStatement(sql);</span><br><span class="line">        <span class="comment">//这里还需要判断parament是否是存在</span></span><br><span class="line">        <span class="comment">//存在</span></span><br><span class="line">        <span class="keyword">if</span> (sql == <span class="keyword">null</span> || handler == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Miss one of parament of sql or handler !"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (parament.length != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; parament.length + <span class="number">1</span>; i++) &#123;</span><br><span class="line">                pstm.setObject(i, parament[i - <span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">return</span> getDataAndSetMapData(pstm);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//不存在</span></span><br><span class="line">            <span class="comment">//结果集</span></span><br><span class="line">           <span class="keyword">return</span> getDataAndSetMapData(pstm);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>抽取的getDataAndSetMapData方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span>  List&lt;Map&lt;String,Object&gt;&gt; getDataAndSetMapData(PreparedStatement pstm) <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">       List&lt;Map&lt;String,Object&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">       ResultSet resultSet = pstm.executeQuery();</span><br><span class="line">       <span class="comment">//元属性的行列及结果集获取赋值给Map</span></span><br><span class="line">       ResultSetMetaData metaData = pstm.getMetaData();</span><br><span class="line">       <span class="keyword">int</span> columnCount = metaData.getColumnCount();</span><br><span class="line">       <span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">           Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=columnCount;i++)&#123;</span><br><span class="line">               String columnName = metaData.getColumnName(i);</span><br><span class="line">               Object value = resultSet.getObject(columnName);</span><br><span class="line">               map.put(columnName,value);</span><br><span class="line">           &#125;</span><br><span class="line">           list.add(map);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> list;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>测试结果<br><img src="https://t1.picb.cc/uploads/2019/12/22/kuLNRR.png" alt="kuLNRR.png"></p>
 
       
 
@@ -309,11 +394,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
         		</li>
       		
 		</ul>
@@ -326,10 +407,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java/数据库//" class="article-tag-list-link color4">数据库</a>
         		</li>
       		
 		</ul>
@@ -347,18 +424,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/22/%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS-MapListHandler%E6%9B%B4%E6%AD%A3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          自定义DBUTILS(MapListHandler更正)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/12/15/This-is-my-first-blog-in-my-life-%E5%B0%8F%E5%8A%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">This is my first blog in my life   ----小劉</div>
+    <a href="/2019/12/22/%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自定义DBUTILS</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -445,6 +513,7 @@
 	<!--页面点击小红心-->
 <script type="text/javascript" src="/love.js"></script>
 
+<script type="text/javascript" src="/snow2.js"></script>
       	</div>
     </div>
   </div>
@@ -585,16 +654,17 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
  
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
-
-<!-- ������Ч2 -->
-
-    <script type="text/javascript" color="0,0,0" opacity="1" 
-        zIndex="-1" count="99" 
-        src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
-    </script>
-
-
+<!--�������Ц����-->
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
 
 <!-- ѩ����Ч2 -->
 
   <script type="text/javascript" src="/js/snow2.js"></script>
+
+
+
+ <!--������Ч2 -->
+ 
+
+
+
