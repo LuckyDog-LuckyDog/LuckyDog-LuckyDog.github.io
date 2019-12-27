@@ -1,15 +1,15 @@
-<!--�������Ц����-->
+<!--浏览器搞笑标题-->
  var OriginTitle = document.title;
  var titleTime;
  document.addEventListener('visibilitychange', function () {
      if (document.hidden) {
          $('[rel="icon"]').attr('href', "/img/trhx2.png");
-         document.title = '��Ҫ�߰���';
+         document.title = '不要走啊！';
          clearTimeout(titleTime);
      }
      else {
          $('[rel="icon"]').attr('href', "/img/trhx2.png");
-         document.title = 'С������' + OriginTitle;
+         document.title = '小劉博客' + OriginTitle;
          titleTime = setTimeout(function () {
              document.title = OriginTitle;
          }, 2000);
