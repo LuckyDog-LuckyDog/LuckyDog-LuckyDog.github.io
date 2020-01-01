@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>自定义DBUTILS | 爱学习,爱生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自定义连接池之前由于对MapListHandler功能的理解有误,该对象并不是通过反射去获取值,而是直接通过sql预编译获得的结果集进行操作 Connection对象在JDBC使用的时候就会去创建一个对象,使用结束以后就会将这个对象给销毁了(close).每次创建和销毁对象都是耗时操作.需要使用连接池对其进行优化.程序初始化的时候，初始化多个连接,将多个连接放入到池(集合)中.每次获取的时候,都可">
+  <meta name="description" content="DBUTILS的可以操作数据库 , 突发奇想想山寨一个,于是……..">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义DBUTILS">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS&#x2F;index.html">
 <meta property="og:site_name" content="爱学习,爱生活">
-<meta property="og:description" content="自定义连接池之前由于对MapListHandler功能的理解有误,该对象并不是通过反射去获取值,而是直接通过sql预编译获得的结果集进行操作 Connection对象在JDBC使用的时候就会去创建一个对象,使用结束以后就会将这个对象给销毁了(close).每次创建和销毁对象都是耗时操作.需要使用连接池对其进行优化.程序初始化的时候，初始化多个连接,将多个连接放入到池(集合)中.每次获取的时候,都可">
+<meta property="og:description" content="DBUTILS的可以操作数据库 , 突发奇想想山寨一个,于是……..">
 <meta property="og:locale" content="中文">
 <meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;ku0rbe.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;ku0Mh6.png">
@@ -24,9 +24,9 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;kuFepc.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;22&#x2F;kuLNRR.png">
 <meta property="article:published_time" content="2019-12-22T09:23:15.000Z">
-<meta property="article:modified_time" content="2019-12-27T12:33:24.658Z">
+<meta property="article:modified_time" content="2020-01-01T06:53:26.994Z">
 <meta property="article:author" content="小劉">
-<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="Mysql">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;t1.picb.cc&#x2F;uploads&#x2F;2019&#x2F;12&#x2F;21&#x2F;ku0rbe.png">
   
@@ -99,7 +99,7 @@
             
 		</nav>
 		<nav>
-			<a>文章总数 4</a>
+			<a>文章总数 5</a>
 		</nav>
 		
 		
@@ -242,13 +242,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="自定义连接池"><a href="#自定义连接池" class="headerlink" title="自定义连接池"></a>自定义连接池</h1><p>之前由于对MapListHandler功能的理解有误,该对象并不是通过反射去获取值,而是直接通过sql预编译获得的结果集进行操作</p>
+        <p>DBUTILS的可以操作数据库 , 突发奇想想山寨一个,于是……..</p>
+<a id="more"></a>
+
+<h1 id="自定义连接池"><a href="#自定义连接池" class="headerlink" title="自定义连接池"></a>自定义连接池</h1><p>之前由于对MapListHandler功能的理解有误,该对象并不是通过反射去获取值,而是直接通过sql预编译获得的结果集进行操作</p>
 <p>Connection对象在JDBC使用的时候就会去创建一个对象,使用结束以后就会将这个对象给销毁了(close).每次创建和销毁对象都是耗时操作.需要使用连接池对其进行优化.程序初始化的时候，初始化多个连接,将多个连接放入到池(集合)中.每次获取的时候,都可以直接从连接池中进行获取.使用结束以后,将连接归还到池中.</p>
 <ul>
-<li>使用连接池的目的: 可以让连接得到复用, 避免浪费<a id="more"></a>
-
-
-</li>
+<li>使用连接池的目的: 可以让连接得到复用, 避免浪费</li>
 </ul>
 <p>下图是自定义的连接池+装饰者+jdbc工具类(很low , 见怪)<br>jdbc工具类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * author:小刘</span></span><br><span class="line"><span class="comment"> * 日期: 2019/12/17 13:38</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">jdbcUTILS</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Properties properties;</span><br><span class="line">    <span class="keyword">static</span> String jdbcclassname;</span><br><span class="line">    <span class="keyword">static</span> String url;</span><br><span class="line">    <span class="keyword">static</span> String user;</span><br><span class="line">    <span class="keyword">static</span> String password;</span><br><span class="line">    <span class="keyword">static</span> Connection conn;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            properties = <span class="keyword">new</span> Properties();</span><br><span class="line">           properties.load(jdbc1.class.getClassLoader().getResourceAsStream("jdbc.properties"));</span><br><span class="line">            jdbcclassname = properties.getProperty(<span class="string">"JDBCCLASSNAME"</span>);</span><br><span class="line">            url = properties.getProperty(<span class="string">"URL"</span>);</span><br><span class="line">            user = properties.getProperty(<span class="string">"USER"</span>);</span><br><span class="line">            password = properties.getProperty(<span class="string">"PASSWORD"</span>);</span><br><span class="line">            Class.forName(jdbcclassname);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span>    DriverManager.getConnection(jdbcUTILS.url, jdbcUTILS.user, jdbcUTILS.password);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">(Connection co, Statement statement)</span> </span>&#123;</span><br><span class="line">        close(<span class="keyword">null</span>, co, statement);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">(ResultSet re, Connection co, Statement statement)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (re != <span class="keyword">null</span>) &#123;</span><br><span class="line">                re.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (co != <span class="keyword">null</span>) &#123;</span><br><span class="line">                co.close();</span><br><span class="line">            &#125;</span><br><span class="line">            statement.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -359,7 +359,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
         		</li>
       		
 		</ul>
@@ -389,11 +389,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/27/%E6%B1%A4%E5%A7%86%E7%8C%AB%E7%9A%84Session/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/12/27/%E6%B1%A4%E5%A7%86%E7%8C%AB%E4%B9%8BSession/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          汤姆猫的Session
+          汤姆猫之Session
         
       </div>
     </a>
@@ -472,7 +472,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 小劉
+    		&copy; 2020 小劉
     	</div>
       	<div class="footer-right">
       		 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
