@@ -46,8 +46,7 @@
 		<a href="/" class="profilepic">
 			<img src="https://t1.picb.cc/uploads/2019/12/21/kuxyGM.th.jpg" class="js-avatar">
 		</a>
-
-	<script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>	
+	
 		
 		<hgroup>
 		  <h1 class="header-author"><a href="/">小劉</a></h1>
@@ -65,7 +64,9 @@
 	        
 				<li><a href="/categories">分类</a></li>
 	        
-				<li><a href="/archives">所有文章</a></li>
+				<li><a href="/tags">标签</a></li>
+	        
+				<li><a href="/archives">记录</a></li>
 	        
 			</ul>
 		</nav>
@@ -83,7 +84,7 @@
             
 		</nav>
 		<nav>
-			<a>文章总数 9</a>
+			<a>文章总数 11</a>
 		</nav>
 		
 		
@@ -110,7 +111,7 @@
     <h3 class="widget-title"></h3>
     <div id="myCanvasContainer" class="widget tagcloud">
       <canvas width="250" height="250" id="resCanvas" style="width=100%">
-        <a href="/tags/JSP/" style="font-size: 13.33px;">JSP</a> <a href="/tags/MyBaits/" style="font-size: 10px;">MyBaits</a> <a href="/tags/Mysql/" style="font-size: 20px;">Mysql</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Tomcat/" style="font-size: 20px;">Tomcat</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/invoke/" style="font-size: 16.67px;">invoke</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/%E5%A4%9A%E6%80%81/" style="font-size: 10px;">多态</a>
+        <a href="/tags/JSP/" style="font-size: 13.33px;">JSP</a> <a href="/tags/MyBaits/" style="font-size: 10px;">MyBaits</a> <a href="/tags/Mysql/" style="font-size: 20px;">Mysql</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Tomcat/" style="font-size: 20px;">Tomcat</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/invoke/" style="font-size: 16.67px;">invoke</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/%E4%B8%80%E8%88%AC%E9%98%9F%E5%88%97/" style="font-size: 10px;">一般队列</a> <a href="/tags/%E5%A4%9A%E6%80%81/" style="font-size: 10px;">多态</a> <a href="/tags/%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97/" style="font-size: 10px;">环形队列</a> <a href="/tags/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/" style="font-size: 10px;">稀疏数组</a>
       </canvas>
     </div>
   </div>
@@ -170,6 +171,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -190,11 +193,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
+					<li style="width: 25%"><a href="/categories">分类</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives">所有文章</a></li>
+					<li style="width: 25%"><a href="/tags">标签</a></li>
+		        
+					<li style="width: 25%"><a href="/archives">记录</a></li>
 		        
 				</ul>
 			</nav>
@@ -210,6 +215,193 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-算法-队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+	  <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/21/%E7%AE%97%E6%B3%95-%E9%98%9F%E5%88%97/">算法--队列</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/21/%E7%AE%97%E6%B3%95-%E9%98%9F%E5%88%97/" class="archive-article-date">
+  	<time datetime="2020-02-21T07:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
+</a>
+        
+		
+		
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+   
+      
+        
+          		<p>一般数组队列, 是通过角标的重置来模拟先进先出. </p>
+<p>如果不重置角标,就会出现越界,以及前端空间不能复用的情况 , 为此出现循环队列来复用空间</p>
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">一般队列</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环形队列</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+  
+    <article id="post-算法-稀疏数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+	  <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/21/%E7%AE%97%E6%B3%95-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/">算法--稀疏数组</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/21/%E7%AE%97%E6%B3%95-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/" class="archive-article-date">
+  	<time datetime="2020-02-21T07:14:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
+</a>
+        
+		
+		
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+   
+      
+        
+          		<p>稀疏数组是一种压缩后的数组，由于原数组中存在大量的无效数据，占据了大量的存储空间，真正有用的数据却少之又少,所以使用压缩存储可以节省存储空间以避免资源的不必要的浪费，在数据序列化到磁盘时，压缩存储可以提高IO效率</p>
+          
+        
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">稀疏数组</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
   
     <article id="post-自定义SpringIOC降低类耦合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -232,20 +424,15 @@
 		
 
       </header>
-	  
-	  
-	  
+    
     
     <div class="article-entry" itemprop="articleBody">
- 
-	
-	
+   
       
-        <p>通过一步步实现自定义SpringIOC , 降低类的耦合性 </p>
         
-          <a class="article-more-a" href="/2020/02/13/%E8%87%AA%E5%AE%9A%E4%B9%89SpringIOC%E9%99%8D%E4%BD%8E%E7%B1%BB%E8%80%A6%E5%90%88/#more">阅读全文 >></a>
+          		<p>通过一步步实现自定义SpringIOC , 降低类的耦合性 </p>
+          
         
-      
 
       
     </div>
@@ -336,20 +523,15 @@
 		
 
       </header>
-	  
-	  
-	  
+    
     
     <div class="article-entry" itemprop="articleBody">
- 
-	
-	
+   
       
-        <p>利用之前的自制的Spring框架 ,对用户登录时的权限进行校验 , 达到过滤用户效果, SpringMvc 和Maven环境配置下面文章就不赘述 </p>
         
-          <a class="article-more-a" href="/2020/02/11/%E5%9F%BA%E4%BA%8E%E8%87%AA%E5%88%B6SpringMvc%E6%A1%86%E6%9E%B6%E7%9A%84%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/#more">阅读全文 >></a>
+          		<p>利用之前的自制的Spring框架 ,对用户登录时的权限进行校验 , 达到过滤用户效果, SpringMvc 和Maven环境配置下面文章就不赘述 </p>
+          
         
-      
 
       
     </div>
@@ -361,11 +543,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -440,20 +622,15 @@
 		
 
       </header>
-	  
-	  
-	  
+    
     
     <div class="article-entry" itemprop="articleBody">
- 
-	
-	
+   
       
-        <p>通过注解 , 反射 , xml配置来接收特定的请求</p>
         
-          <a class="article-more-a" href="/2020/01/14/%E8%87%AA%E5%AE%9A%E4%B9%89SpringMvc%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/#more">阅读全文 >></a>
+          		<p>通过注解 , 反射 , xml配置来接收特定的请求</p>
+          
         
-      
 
       
     </div>
@@ -469,15 +646,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">invoke</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">annotation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">invoke</a>
         		</li>
       		
 		</ul>
@@ -548,21 +725,16 @@
 		
 
       </header>
-	  
-	  
-	  
+    
     
     <div class="article-entry" itemprop="articleBody">
- 
-	
-	
+   
       
-        <p>MyBaits(之前为ibaits)基于 java 的==持久层框架==，它内部封装了 jdbc，使开发者只需要关注 sql 语句本身，而不需要花费精力去处理加载驱动、创建连接、创建 statement 等繁杂的过程。</p>
+        
+          		<p>MyBaits(之前为ibaits)基于 java 的==持久层框架==，它内部封装了 jdbc，使开发者只需要关注 sql 语句本身，而不需要花费精力去处理加载驱动、创建连接、创建 statement 等繁杂的过程。</p>
 <p>​    mybatis 通过xml 或注解的方式将要执行的各种statement 配置起来，并通过java 对象和statement 中sql的动态参数进行映射生成最终执行的 sql 语句，最后由 mybatis 框架执行 sql并将结果映射为 java 对象并返回</p>
+          
         
-          <a class="article-more-a" href="/2020/01/13/MyBaits%E6%8A%80%E6%9C%AF/#more">阅读全文 >></a>
-        
-      
 
       
     </div>
@@ -574,11 +746,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBaits</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBaits</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
         		</li>
       		
 		</ul>
@@ -649,20 +821,15 @@
 		
 
       </header>
-	  
-	  
-	  
+    
     
     <div class="article-entry" itemprop="articleBody">
- 
-	
-	
+   
       
-        <p>记录通过浏览器操作数据库 , 前端页面有点不熟悉 , 见谅啊~~!</p>
         
-          <a class="article-more-a" href="/2020/01/01/%E9%A1%B5%E9%9D%A2%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/#more">阅读全文 >></a>
+          		<p>记录通过浏览器操作数据库 , 前端页面有点不熟悉 , 见谅啊~~!</p>
+          
         
-      
 
       
     </div>
@@ -674,15 +841,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JSP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
         		</li>
       		
 		</ul>
@@ -753,20 +920,15 @@
 		
 
       </header>
-	  
-	  
-	  
+    
     
     <div class="article-entry" itemprop="articleBody">
- 
-	
-	
+   
       
-        <p>Tomcat , a lovely cat~ ~</p>
         
-          <a class="article-more-a" href="/2019/12/27/%E6%B1%A4%E5%A7%86%E7%8C%AB%E4%B9%8BSession/#more">阅读全文 >></a>
+          		<p>Tomcat , a lovely cat~ ~</p>
+          
         
-      
 
       
     </div>
@@ -853,20 +1015,15 @@
 		
 
       </header>
-	  
-	  
-	  
+    
     
     <div class="article-entry" itemprop="articleBody">
- 
-	
-	
+   
       
-        <p>DBUTILS的可以操作数据库 , 突发奇想想山寨一个,于是……..</p>
         
-          <a class="article-more-a" href="/2019/12/22/%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS/#more">阅读全文 >></a>
+          		<p>DBUTILS的可以操作数据库 , 突发奇想想山寨一个,于是……..</p>
+          
         
-      
 
       
     </div>
@@ -949,20 +1106,15 @@
 		
 
       </header>
-	  
-	  
-	  
+    
     
     <div class="article-entry" itemprop="articleBody">
- 
-	
-	
+   
       
-        <p>Those doesn’t kill you makes you stronger</p>
         
-          <a class="article-more-a" href="/2019/12/15/This-is-my-first-blog-in-my-life-%E5%B0%8F%E5%8A%89/#more">阅读全文 >></a>
+          		<p>Those doesn’t kill you makes you stronger</p>
+          
         
-      
 
       
     </div>
@@ -1002,80 +1154,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	  <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/15/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/15/hello-world/" class="archive-article-date">
-  	<time datetime="2019-12-15T12:43:22.816Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
-</a>
-        
-		
-		
-
-      </header>
-	  
-	  
-	  
-    
-    <div class="article-entry" itemprop="articleBody">
- 
-	
-	
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-        
-          <a class="article-more-a" href="/2019/12/15/hello-world/#more">阅读全文 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -1121,10 +1203,6 @@
 setInterval("createtime()",250);
 </script>
 	
-	<!--页面点击小红心-->
-<script type="text/javascript" src="/love.js"></script>
-
-<script type="text/javascript" src="/snow2.js"></script>
     </div>
     <script>
 	var yiliaConfig = {
@@ -1252,7 +1330,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
 
-
+<script type="text/javascript" src="/js/love.js"></script>
 
 <!--�������Ц����-->
 <script type="text/javascript" src="\js\FunnyTitle.js"></script>

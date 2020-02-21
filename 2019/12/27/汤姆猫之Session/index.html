@@ -55,8 +55,7 @@
 		<a href="/" class="profilepic">
 			<img src="https://t1.picb.cc/uploads/2019/12/21/kuxyGM.th.jpg" class="js-avatar">
 		</a>
-
-	<script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>	
+	
 		
 		<hgroup>
 		  <h1 class="header-author"><a href="/">小劉</a></h1>
@@ -74,7 +73,9 @@
 	        
 				<li><a href="/categories">分类</a></li>
 	        
-				<li><a href="/archives">所有文章</a></li>
+				<li><a href="/tags">标签</a></li>
+	        
+				<li><a href="/archives">记录</a></li>
 	        
 			</ul>
 		</nav>
@@ -92,7 +93,7 @@
             
 		</nav>
 		<nav>
-			<a>文章总数 9</a>
+			<a>文章总数 11</a>
 		</nav>
 		
 		
@@ -119,7 +120,7 @@
     <h3 class="widget-title"></h3>
     <div id="myCanvasContainer" class="widget tagcloud">
       <canvas width="250" height="250" id="resCanvas" style="width=100%">
-        <a href="/tags/JSP/" style="font-size: 13.33px;">JSP</a> <a href="/tags/MyBaits/" style="font-size: 10px;">MyBaits</a> <a href="/tags/Mysql/" style="font-size: 20px;">Mysql</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Tomcat/" style="font-size: 20px;">Tomcat</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/invoke/" style="font-size: 16.67px;">invoke</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/%E5%A4%9A%E6%80%81/" style="font-size: 10px;">多态</a>
+        <a href="/tags/JSP/" style="font-size: 13.33px;">JSP</a> <a href="/tags/MyBaits/" style="font-size: 10px;">MyBaits</a> <a href="/tags/Mysql/" style="font-size: 20px;">Mysql</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Tomcat/" style="font-size: 20px;">Tomcat</a> <a href="/tags/annotation/" style="font-size: 10px;">annotation</a> <a href="/tags/invoke/" style="font-size: 16.67px;">invoke</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/%E4%B8%80%E8%88%AC%E9%98%9F%E5%88%97/" style="font-size: 10px;">一般队列</a> <a href="/tags/%E5%A4%9A%E6%80%81/" style="font-size: 10px;">多态</a> <a href="/tags/%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97/" style="font-size: 10px;">环形队列</a> <a href="/tags/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/" style="font-size: 10px;">稀疏数组</a>
       </canvas>
     </div>
   </div>
@@ -179,6 +180,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -199,11 +202,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories">分类</a></li>
+					<li style="width: 25%"><a href="/categories">分类</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives">所有文章</a></li>
+					<li style="width: 25%"><a href="/tags">标签</a></li>
+		        
+					<li style="width: 25%"><a href="/archives">记录</a></li>
 		        
 				</ul>
 			</nav>
@@ -243,16 +248,14 @@
         
 
       </header>
-	  
-	  
-	  
+    
     
     <div class="article-entry" itemprop="articleBody">
- 
-	
-	
+   
       
-        <p>Tomcat , a lovely cat~ ~</p>
+        
+          
+            <p>Tomcat , a lovely cat~ ~</p>
 <a id="more"></a>
 
 <h1 id="汤姆猫服务器之Session"><a href="#汤姆猫服务器之Session" class="headerlink" title="汤姆猫服务器之Session"></a>汤姆猫服务器之Session</h1><p>session是服务器端的技术。服务器为每一个浏览器开辟一块内存空间，即session对象。由于session对象是每一个浏览器特有的，所有用户的记录可以存放在session对象中。同时，每一个session对象都对应一个sessionId，服务器把sessionId写到cookie中，再次访问的时候，浏览器把sessionId带过来，找到对应的session对象</p>
@@ -379,7 +382,8 @@
 </li>
 </ul>
 
-      
+          
+        
 
       
         <div class="page-reward">
@@ -569,10 +573,6 @@
 setInterval("createtime()",250);
 </script>
 	
-	<!--页面点击小红心-->
-<script type="text/javascript" src="/love.js"></script>
-
-<script type="text/javascript" src="/snow2.js"></script>
     </div>
     <script>
 	var yiliaConfig = {
@@ -700,7 +700,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
 
-
+<script type="text/javascript" src="/js/love.js"></script>
 
 <!--�������Ц����-->
 <script type="text/javascript" src="\js\FunnyTitle.js"></script>
