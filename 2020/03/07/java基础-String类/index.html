@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 稀疏数组 | 爱学习,爱生活</title>
+  <title>java基础--String类 | 爱学习,爱生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="爱学习,爱生活">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84&#x2F;index.html">
+  <meta name="description" content="回顾String类 , 温故而知新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础--String类">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;07&#x2F;java%E5%9F%BA%E7%A1%80-String%E7%B1%BB&#x2F;index.html">
 <meta property="og:site_name" content="爱学习,爱生活">
+<meta property="og:description" content="回顾String类 , 温故而知新">
 <meta property="og:locale" content="中文">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2020&#x2F;03&#x2F;07&#x2F;3jqCUx.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2020&#x2F;03&#x2F;07&#x2F;3jbN4K.png">
+<meta property="article:published_time" content="2020-03-07T15:09:55.000Z">
+<meta property="article:modified_time" content="2020-03-07T15:12:27.839Z">
 <meta property="article:author" content="小劉">
+<meta property="article:tag" content="String">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s2.ax1x.com&#x2F;2020&#x2F;03&#x2F;07&#x2F;3jqCUx.png">
   
     <link rel="alternative" href="/atom.xml" title="爱学习,爱生活" type="application/atom+xml">
   
@@ -214,71 +222,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
-    
+            <article id="post-java基础-String类" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-02-21T07:14:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
+	  <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/">数据结构与算法--稀疏数组</a>
+    <h1 class="article-title" itemprop="name">
+      java基础--String类
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        <a href="/2020/03/07/java%E5%9F%BA%E7%A1%80-String%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2020-03-07T15:09:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
+</a>
+        
+		
+		
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+   
+      
+        
           
+            <p>回顾String类 , 温故而知新</p>
+<a id="more"></a>
+
+<h1 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h1><ul>
+<li>String是一个final类 ,代表不可变性 , 不可以被继承</li>
+<li>字符串是常量, 用双引号引起表示,值被创建之后是不能更改的</li>
+<li>String 的底层是一个字符数组value[] </li>
+<li>实现了Serializable(支持字符串序列化), Comparable(支持字符串比较) , CharSequence(代表是一个字符串)接口</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//String的底层</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** The value is used for character storage. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-代码验证"><a href="#1-代码验证" class="headerlink" title="1 代码验证"></a>1 代码验证</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">String a = <span class="string">"xiaoliu"</span>;<span class="comment">//字面量 , 存于常量池中</span></span><br><span class="line">String b = <span class="string">"xiaoliu"</span>;</span><br><span class="line">System.out.println(a==b);<span class="comment">//true ,常量池不会存储同一个字符</span></span><br><span class="line">a=<span class="string">"xiaolin"</span>;</span><br><span class="line">System.out.println(a==b);<span class="comment">//false ,重新赋值时 ,重新指定内存区域</span></span><br><span class="line">String c =<span class="string">"xiaoliu"</span>;</span><br><span class="line">c+=<span class="string">"xiaolin"</span>;</span><br><span class="line">System.out.println(c);<span class="comment">//xiaoliuxiaolin 连接操作时,重新指向另外的内存区域</span></span><br><span class="line">String d = <span class="string">"Xiaolin"</span>;</span><br><span class="line">String replace = a.replace(<span class="string">"x"</span>, <span class="string">"X"</span>);</span><br><span class="line">System.out.println(replace);<span class="comment">//Xiaolin</span></span><br><span class="line">System.out.println(replace==a);<span class="comment">//false , 代替操作时,重新指定内存区域</span></span><br><span class="line">System.out.println(replace==d);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.ax1x.com/2020/03/07/3jqCUx.png" alt="3jqCUx.png"></p>
+<h2 id="2-String的创建"><a href="#2-String的创建" class="headerlink" title="2 String的创建"></a>2 String的创建</h2><p>三种创建String对象方式 : </p>
+<ol>
+<li>“”字面量赋值</li>
+<li>new String() 构造方法赋值</li>
+<li>set方法赋值</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String S1 = <span class="keyword">new</span> String();<span class="comment">//本质this.value = new char[0]</span></span><br><span class="line">String S2 = <span class="keyword">new</span> String(String original)<span class="comment">//this.value = original.value</span></span><br><span class="line">String S3 = <span class="keyword">new</span> String(<span class="keyword">char</span>[] a) <span class="comment">// this.value = Arrays.copyOf(value ,value.length);</span></span><br><span class="line">String S4 = <span class="keyword">new</span> String (<span class="keyword">char</span>[] a ,<span class="keyword">int</span> startIndex , <span class="keyword">int</span> count)</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意 :</strong> <strong>new String(“xiaoliu”)这个过程中创建了两个对象 :</strong></p>
+<p><strong>1)new结构 ;</strong></p>
+<p><strong>2) 底层chart[] ,字符串常量池</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">      String a1 = <span class="string">"xiaoliu"</span>;<span class="comment">//字面量 , 存于方法区的常量池空间</span></span><br><span class="line">      String a2 = <span class="string">"xiaoliu"</span>;</span><br><span class="line">      String b1 = <span class="keyword">new</span> String(<span class="string">"xiaoliu"</span>);<span class="comment">//new 为构造函数 , 存于堆内存空间</span></span><br><span class="line">      String b2 = <span class="keyword">new</span> String(<span class="string">"xiaoliu"</span>);</span><br><span class="line">      System.out.println(a1 == a2);<span class="comment">//true</span></span><br><span class="line">      System.out.println(a1 == b1);<span class="comment">//false</span></span><br><span class="line">      System.out.println(a1 == b2);<span class="comment">//false</span></span><br><span class="line">      System.out.println(b1 == b2);<span class="comment">//false</span></span><br><span class="line">      Person person = <span class="keyword">new</span> Person(<span class="string">"xiaoliu"</span>, <span class="number">18</span>);</span><br><span class="line">      Person person1 = <span class="keyword">new</span> Person(<span class="string">"xiaoliu"</span>, <span class="number">18</span>);</span><br><span class="line">      System.out.println(person.name == person1.name);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">      String s1 = <span class="string">"xiaoliu"</span>;</span><br><span class="line">      String s2 = <span class="string">"xiaolin"</span>;</span><br><span class="line">   <span class="keyword">final</span> String s8 = <span class="string">"xiaolin"</span>;</span><br><span class="line">      String s3 = <span class="string">"xiaoliu"</span> + <span class="string">"xiaolin"</span>;</span><br><span class="line">      String s4 = <span class="string">"xiaoliuxiaolin"</span>;</span><br><span class="line">System.out.println(s8 == s4); <span class="comment">//true ,使用了final 意为不可变</span></span><br><span class="line">      String s5 = <span class="string">"xiaoliu"</span> + s2;</span><br><span class="line">      String s6 = s1 + <span class="string">"xiaolin"</span>;</span><br><span class="line">      String s7 = s1 + s2;</span><br><span class="line">      System.out.println(s3 == s4);<span class="comment">//true , 连接操作 , 存于常量池空间</span></span><br><span class="line">      System.out.println(s3 == s5);<span class="comment">//false , 只要过程有变量参与 , 那么存于堆内存空间</span></span><br><span class="line">      System.out.println(s3 == s6);<span class="comment">//false</span></span><br><span class="line">      System.out.println(s3 == s7);<span class="comment">//false</span></span><br><span class="line">      System.out.println(s5 == s6);<span class="comment">//false</span></span><br><span class="line">      System.out.println(s5 == s7);<span class="comment">//false</span></span><br><span class="line">      System.out.println(s6 == s7);<span class="comment">//false</span></span><br><span class="line">      String s8 = s5.intern();</span><br><span class="line">      System.out.println(s8==s4);<span class="comment">//true , 注意jdk8中如果常量池中有就会返回常量池中的对象 , jdk8之前都是直接创建新的对象,放在这里返回的是fasle</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-String的常见用法"><a href="#3-String的常见用法" class="headerlink" title="3 String的常见用法"></a>3 String的常见用法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">leng</span><span class="params">()</span> : 返回字符串的长度:return value.length</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">charAt</span><span class="params">(<span class="keyword">int</span> index)</span>: 返回某索引处return value[index]</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span>:判断是否为空字符  :return value.length</span>==<span class="number">0</span>;</span><br><span class="line"><span class="function">String <span class="title">toLowerCase</span><span class="params">()</span> : 转化为小写</span></span><br><span class="line"><span class="function">String <span class="title">toUpperCase</span><span class="params">()</span> : 转化为大写</span></span><br><span class="line"><span class="function">String <span class="title">Trim</span><span class="params">()</span> : 返回字符串副本,忽略前部空白和尾部空白</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equal</span><span class="params">(Object obj)</span> : 比较字符串的内容是否相同</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equalIgnoreCase</span><span class="params">(String anotherString)</span>:与equals类似 , 忽略大小写</span></span><br><span class="line"><span class="function">String <span class="title">concat</span> <span class="params">(String str)</span> :将指定字符串连接到此字符串的结尾 , 等价与"+"</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(String anotherString)</span> : 比较两个字符串的大小</span></span><br><span class="line"><span class="function">String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> beginIndex)</span>:返回一个新的字符串 , 以beginIndex开始截取</span></span><br><span class="line"><span class="function">String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> beginIndex,<span class="keyword">int</span> endIndex)</span>返回一个新的字符串 ,从begin到end截取,不包含第一个字符</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">endsWith</span><span class="params">(String Suffix)</span>:是否以指定的后缀结束</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">startWith</span><span class="params">(String prefix)</span>:是否以指定给的前缀结束</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">startWith</span><span class="params">(String prefix,String Suffix)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(ChartSequence s)</span> :</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(String str)</span>:第一次出现Str的索引</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(String str , <span class="keyword">int</span> fromIndex)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(String str)</span>:返回指定子字符串在此字符串中最右边出现处的索引</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(String str ,<span class="keyword">int</span> fromIndex)</span>:</span></span><br><span class="line"><span class="function">String <span class="title">replace</span><span class="params">(<span class="keyword">char</span> oldChar . <span class="keyword">char</span> newchar)</span>:</span></span><br><span class="line"><span class="function">String <span class="title">replace</span><span class="params">(charSequence target . charSequence replacement)</span>:</span></span><br><span class="line"><span class="function">String <span class="title">repaceAll</span><span class="params">(String regex , Sreing replacement)</span></span></span><br><span class="line"><span class="function">String <span class="title">replaceFirst</span><span class="params">(String regex , String replacement)</span></span></span><br><span class="line"><span class="function">  <span class="keyword">boolean</span> <span class="title">matches</span><span class="params">(String regex)</span> : 是否正则表达式匹配</span></span><br><span class="line"><span class="function">  String <span class="title">split</span><span class="params">(String regex)</span>:</span></span><br><span class="line"><span class="function">  String <span class="title">split</span><span class="params">(String regex , <span class="keyword">int</span> limit)</span>: 根据匹配的正则表达式来拆分次字符串</span></span><br><span class="line"><span class="function"><span class="comment">//index未找到都会放回-1 , indexOf==lastIndexOf的情况 : 1.只有一个字符串 2. 都找不到</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-String与基本数据类型的转化"><a href="#4-String与基本数据类型的转化" class="headerlink" title="4 String与基本数据类型的转化"></a>4 String与基本数据类型的转化</h2><ul>
+<li>字符串 - &gt; 基本数据类型 包装类</li>
+</ul>
+<p>parseInt(String s):将数字字符串转化为整型 ,Byte ,Short,Long,Float,Double 都可以装化为基本相应的基本数据类型</p>
+<ul>
+<li>基本数据类型  , 包装类 - &gt; 字符串</li>
+</ul>
+<p>String.ValueOf() 可将()里面的东西转化为字符串</p>
+<h2 id="5-String与字符数组的转化"><a href="#5-String与字符数组的转化" class="headerlink" title="5 String与字符数组的转化"></a>5 String与字符数组的转化</h2><p>String –&gt; chart[] , 调用toChartArray()方法<br>chart[] –&gt; String , 调用String的构造 , new String(chart[ ]) </p>
+<h2 id="6-String与字节数组的转化"><a href="#6-String与字节数组的转化" class="headerlink" title="6 String与字节数组的转化"></a>6 String与字节数组的转化</h2><p>String –&gt; byte[] , 调用getBytes()方法 , 里面可以指定编码<br> byte[] –&gt; String ,  调用String的构造 , new String( byte[ ]) , 可以指定编码</p>
+<h2 id="7-String-StringBuffer-StringBuider"><a href="#7-String-StringBuffer-StringBuider" class="headerlink" title="7 String - StringBuffer - StringBuider"></a>7 String - StringBuffer - StringBuider</h2><p>String : 不可变字符串序列 ,底层是chart[]存储<br>StringBuffer  : 可变字符串序列, 线程安全 ,方法都加了 synchronized方法 ,效率低下 ,底层是chart[]存储<br>StringBuider : 可变字符串序列 , 线程不安全 , 效率高 ,底层是chart[]存储</p>
+<h3 id="1-源码分析"><a href="#1-源码分析" class="headerlink" title="(1) 源码分析"></a>(1) 源码分析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//String</span></span><br><span class="line">String str = <span class="keyword">new</span> String();<span class="comment">//char[] value = new char[0];</span></span><br><span class="line">String str1 = <span class="keyword">new</span> String(<span class="string">"abc"</span>)<span class="comment">//char[] value= new char[]&#123;'a','b','c'&#125;</span></span><br><span class="line">  <span class="comment">//StringBuffer</span></span><br><span class="line">StringBuffer sb = <span class="keyword">new</span> StringBuffer();<span class="comment">//char[] value=new char[16];底层创建一个长度为16的字符数组</span></span><br><span class="line">System.out.println(sb.length);<span class="comment">//0 , 底层返回的是count 个数</span></span><br><span class="line">sb.append(<span class="string">'a'</span>) <span class="comment">//value[0] ='a';</span></span><br><span class="line">sb.append(<span class="string">'b'</span>)<span class="comment">//value[1]='b';</span></span><br><span class="line"> String sb1 = <span class="keyword">new</span> StringBuffer(<span class="string">"xiaoliu"</span>) ; <span class="comment">//char[] value = new char["xiaoliu".length+16];</span></span><br></pre></td></tr></table></figure>
+
+<p>问题  :当可字符串序列的底层数组不够时 , 底层会判断(当前长度+新增长度)=max的和是否大于16 , 如果大于 ,就新建数据 ,然后将值copy过来 , 见下面源码分析;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityInternal</span><span class="params">(<span class="keyword">int</span> minimumCapacity)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// overflow-conscious code</span></span><br><span class="line">        <span class="keyword">if</span> (minimumCapacity - value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="comment">//如果新增的长度大于数组的原始长度16 , 就进行Copy</span></span><br><span class="line">            value = Arrays.copyOf(value,</span><br><span class="line">                    newCapacity(minimumCapacity));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">newCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// overflow-conscious code</span></span><br><span class="line">        <span class="keyword">int</span> newCapacity = (value.length &lt;&lt; <span class="number">1</span>) + <span class="number">2</span>;<span class="comment">//将16的字节数组扩容为原来的2倍+2</span></span><br><span class="line">        <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>) &#123;<span class="comment">//如果两倍还不够 ,那么直接变为你的长度</span></span><br><span class="line">            newCapacity = minCapacity;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (newCapacity &lt;= <span class="number">0</span> || MAX_ARRAY_SIZE - newCapacity &lt; <span class="number">0</span>)</span><br><span class="line">            ? hugeCapacity(minCapacity)</span><br><span class="line">            : newCapacity;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//所以在使用的时候能够用指定StringBuffer的长度 , 就是避免扩容的情况 ,提高效率</span></span><br><span class="line"><span class="comment">//StringBuffer(int capacity) 或 StringBuider(int capacity)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-StringBuffer常用方法"><a href="#2-StringBuffer常用方法" class="headerlink" title="(2) StringBuffer常用方法"></a>(2) StringBuffer常用方法</h3><p><img src="https://s2.ax1x.com/2020/03/07/3jbN4K.png" alt="3jbN4K.png"></p>
+<h3 id="3-三者效率的比较"><a href="#3-三者效率的比较" class="headerlink" title="(3) 三者效率的比较"></a>(3) 三者效率的比较</h3><p>StringBuilder &gt; StringBuffer &gt; String</p>
+
+          
+        
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>小劉感谢您的赞赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://t1.picb.cc/uploads/2020/02/13/kq1gjw.th.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">稀疏数组</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">String</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E6%A0%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构与算法-栈</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
+
+        
+            <section id="comments" class="comments">
+              <style>
+                .comments{margin:30px;padding:10px;background:#fff}
+                @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+              </style>
+              <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "gMjbzdcA5SJmthmDiaNdbaIr-gzGzoHsz",
+        app_key: "hxnI79eJjp4VkO3sIDOC6P1t",
+        placeholder: "亲,赶紧评论一下吧",
+        avatar:"mm",
+    });
+</script>
+          </section>
+        
 
 
           </div>
@@ -328,9 +485,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
