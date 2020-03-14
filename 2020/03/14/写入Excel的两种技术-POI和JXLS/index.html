@@ -7,15 +7,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: MyBaits | 爱学习,爱生活</title>
+  <title>写入Excel的两种技术--POI和JXLS | 爱学习,爱生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="爱学习,爱生活">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;MyBaits&#x2F;index.html">
+  <meta name="description" content="本章通过POI 和 JXLS 各个技术 ,分别应用于项目中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写入Excel的两种技术--POI和JXLS">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;%E5%86%99%E5%85%A5Excel%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8A%80%E6%9C%AF-POI%E5%92%8CJXLS&#x2F;index.html">
 <meta property="og:site_name" content="爱学习,爱生活">
+<meta property="og:description" content="本章通过POI 和 JXLS 各个技术 ,分别应用于项目中">
 <meta property="og:locale" content="中文">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;8lbF4e.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;8lbl4g.png">
+<meta property="article:published_time" content="2020-03-14T15:25:31.000Z">
+<meta property="article:modified_time" content="2020-03-14T15:29:49.873Z">
 <meta property="article:author" content="小劉">
+<meta property="article:tag" content="POI">
+<meta property="article:tag" content="JXLS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;14&#x2F;8lbF4e.png">
   
     <link rel="alternative" href="/atom.xml" title="爱学习,爱生活" type="application/atom+xml">
   
@@ -215,52 +224,155 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
-    
+            <article id="post-写入Excel的两种技术-POI和JXLS" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/13/MyBaits%E6%8A%80%E6%9C%AF/" class="archive-article-date">
-  	<time datetime="2020-01-13T09:55:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-13</time>
-</a>
-        </div>
-    	 
+	  <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/13/MyBaits%E6%8A%80%E6%9C%AF/">MyBaits技术</a>
+    <h1 class="article-title" itemprop="name">
+      写入Excel的两种技术--POI和JXLS
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        <a href="/2020/03/14/%E5%86%99%E5%85%A5Excel%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8A%80%E6%9C%AF-POI%E5%92%8CJXLS/" class="archive-article-date">
+  	<time datetime="2020-03-14T15:25:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
+</a>
+        
+		
+		
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+   
+      
+        
           
+            <p>本章通过POI 和 JXLS 各个技术 ,分别应用于项目中</p>
+<a id="more"></a>
+
+<p>[TOC]</p>
+<h1 id="写入Excel的两种技术"><a href="#写入Excel的两种技术" class="headerlink" title="写入Excel的两种技术"></a>写入Excel的两种技术</h1><p>目标 , 将前端的数据写入excel , 供管理者决策</p>
+<p><img src="https://s1.ax1x.com/2020/03/14/8lbF4e.png" alt="8lbF4e.png"></p>
+<h2 id="一-POI技术"><a href="#一-POI技术" class="headerlink" title="一 . POI技术"></a>一 . POI技术</h2><p>POI 中,使用：XSSF － 提供读写Microsoft Excel OOXML<br>XSSFWorkbook：工作簿<br>XSSFSheet：工作表<br>XSSFRow：行<br>XSSFCell：单元格</p>
+<ul>
+<li>创建工作簿的时候, 不需要传入参数(excel不存在的)</li>
+<li>使用输出流，输出excel<br>读取Excel, 每一行读取到了String[] 里面, 多行就是多个String[] , 最终封装到List</li>
+</ul>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式一:利用POI技术将前端数据挨个写入到excel的单元格</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获得Excel模板文件绝对路径,separator为了兼容所有//</span></span><br><span class="line">            String temlateRealPath = request.getSession().getServletContext().getRealPath(<span class="string">"template"</span>) +</span><br><span class="line">                    File.separator + <span class="string">"report_template.xlsx"</span>;</span><br><span class="line">            XSSFWorkbook workbook = <span class="keyword">new</span> XSSFWorkbook(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(temlateRealPath)));</span><br><span class="line">            XSSFSheet sheet = workbook.getSheetAt(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">            Map&lt;String, Object&gt; map = reportService.getBusinessReport();</span><br><span class="line">            String reportDate = (String) map.get(<span class="string">"reportDate"</span>);</span><br><span class="line">            Long todayNewMember = (Long) map.get(<span class="string">"todayNewMember"</span>);</span><br><span class="line">            Long totalMember = (Long) map.get(<span class="string">"totalMember"</span>);</span><br><span class="line">            Long thisWeekNewMember = (Long) map.get(<span class="string">"thisWeekNewMember"</span>);</span><br><span class="line">            Long thisMonthNewMember = (Long) map.get(<span class="string">"thisMonthNewMember"</span>);</span><br><span class="line">            Long todayOrderNumber = (Long) map.get(<span class="string">"todayOrderNumber"</span>);</span><br><span class="line">            Long thisWeekOrderNumber = (Long) map.get(<span class="string">"thisWeekOrderNumber"</span>);</span><br><span class="line">            Long thisMonthOrderNumber = (Long) map.get(<span class="string">"thisMonthOrderNumber"</span>);</span><br><span class="line">            Long todayVisitsNumber = (Long) map.get(<span class="string">"todayVisitsNumber"</span>);</span><br><span class="line">            Long thisWeekVisitsNumber = (Long) map.get(<span class="string">"thisWeekVisitsNumber"</span>);</span><br><span class="line">            Long thisMonthVisitsNumber = (Long) map.get(<span class="string">"thisMonthVisitsNumber"</span>);</span><br><span class="line">            List&lt;Map&gt; hotSetmealList = (List) map.get(<span class="string">"hotSetmeal"</span>);</span><br><span class="line">            XSSFRow row = sheet.getRow(<span class="number">2</span>);</span><br><span class="line">            row.getCell(<span class="number">5</span>).setCellValue(reportDate);</span><br><span class="line"></span><br><span class="line">            row = sheet.getRow(<span class="number">4</span>);</span><br><span class="line">            row.getCell(<span class="number">5</span>).setCellValue(todayNewMember);</span><br><span class="line">            row.getCell(<span class="number">7</span>).setCellValue(totalMember);</span><br><span class="line"></span><br><span class="line">            row = sheet.getRow(<span class="number">5</span>);</span><br><span class="line">            row.getCell(<span class="number">5</span>).setCellValue(thisWeekNewMember);</span><br><span class="line">            row.getCell(<span class="number">7</span>).setCellValue(thisMonthNewMember);</span><br><span class="line"></span><br><span class="line">            row = sheet.getRow(<span class="number">7</span>);</span><br><span class="line">            row.getCell(<span class="number">5</span>).setCellValue(todayOrderNumber);</span><br><span class="line">            row.getCell(<span class="number">7</span>).setCellValue(todayVisitsNumber);</span><br><span class="line"></span><br><span class="line">            row = sheet.getRow(<span class="number">8</span>);</span><br><span class="line">            row.getCell(<span class="number">5</span>).setCellValue(thisWeekOrderNumber);</span><br><span class="line">            row.getCell(<span class="number">7</span>).setCellValue(thisWeekVisitsNumber);</span><br><span class="line"></span><br><span class="line">            row = sheet.getRow(<span class="number">9</span>);</span><br><span class="line">            row.getCell(<span class="number">5</span>).setCellValue(thisMonthOrderNumber);</span><br><span class="line">            row.getCell(<span class="number">7</span>).setCellValue(thisMonthVisitsNumber);</span><br><span class="line"></span><br><span class="line">            Integer rowNumber = <span class="number">12</span>;</span><br><span class="line">            <span class="keyword">for</span> (Map setmealMap : hotSetmealList) &#123;</span><br><span class="line">                String name = (String) setmealMap.get(<span class="string">"name"</span>);</span><br><span class="line">                Long setmeal_count = (Long) setmealMap.get(<span class="string">"setmeal_count"</span>);</span><br><span class="line">                BigDecimal proportion = (BigDecimal) setmealMap.get(<span class="string">"proportion"</span>);</span><br><span class="line">                String remark = (String) setmealMap.get(<span class="string">"remark"</span>);</span><br><span class="line">                XSSFRow sheetRow = sheet.getRow(rowNumber);</span><br><span class="line">                sheetRow.getCell(<span class="number">4</span>).setCellValue(name);</span><br><span class="line">                sheetRow.getCell(<span class="number">5</span>).setCellValue(setmeal_count);</span><br><span class="line">                sheetRow.getCell(<span class="number">6</span>).setCellValue(proportion.doubleValue());</span><br><span class="line">                sheetRow.getCell(<span class="number">7</span>).setCellValue(remark);</span><br><span class="line">                rowNumber++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ServletOutputStream outputStream = response.getOutputStream();</span><br><span class="line">            response.setContentType(<span class="string">"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"</span>);</span><br><span class="line">            response.setHeader(<span class="string">"content-Disposition"</span>, <span class="string">"attachment;filename=report.xlsx"</span>);</span><br><span class="line">            workbook.write(outputStream);</span><br><span class="line">            outputStream.close();</span><br><span class="line">            workbook.close();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Result(<span class="keyword">false</span>, MessageConstant.GET_BUSINESS_REPORT_FAIL);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二-JXLS"><a href="#二-JXLS" class="headerlink" title="二. JXLS"></a>二. JXLS</h2><h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p><img src="https://s1.ax1x.com/2020/03/14/8lbl4g.png" alt="8lbl4g.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式二:利用JXLS技术将前端数据挨个写入到excel的单元格</span></span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line"><span class="comment">//获得Excel模板文件绝对路径</span></span><br><span class="line">            String temlateRealPath = request.getSession().getServletContext().getRealPath(<span class="string">"template"</span>) +</span><br><span class="line">                    File.separator + <span class="string">"report_template.xlsx"</span>;</span><br><span class="line">            XSSFWorkbook workbook = <span class="keyword">new</span> XSSFWorkbook(<span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(temlateRealPath)));</span><br><span class="line">            Map&lt;String, Object&gt; map = reportService.getBusinessReport();</span><br><span class="line">            XLSTransformer xlsTransformer = <span class="keyword">new</span> XLSTransformer();</span><br><span class="line">            xlsTransformer.transformWorkbook(workbook,map);</span><br><span class="line">      ServletOutputStream outputStream = response.getOutputStream();</span><br><span class="line">            response.setContentType(<span class="string">"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"</span>);</span><br><span class="line">            response.setHeader(<span class="string">"content-Disposition"</span>, <span class="string">"attachment;filename=report.xlsx"</span>);</span><br><span class="line">            workbook.write(outputStream);</span><br><span class="line">            outputStream.close();</span><br><span class="line">            workbook.close();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Result(<span class="keyword">false</span>, MessageConstant.GET_BUSINESS_REPORT_FAIL);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-JXLS简介"><a href="#1-JXLS简介" class="headerlink" title="(1) . JXLS简介"></a>(1) . JXLS简介</h3><p>JXLS是实现了只用几行代码就能创建极其复杂的Excel报表。用特定的标记来创建一个带有规则的.xls模板文件 , 并指定数据放置的位置 , 然后调用JXLS引擎来传递导出的数据放在指定的位置。除了生成Excel报表功能，JXLS还提供了jxls-reader模块，jxls-reader模块会很有用，如果你需要解析一个预定义格式的Excel文件并在其中插入数据的话。</p>
+<h3 id="2-．JXLS安装"><a href="#2-．JXLS安装" class="headerlink" title="(2)．JXLS安装"></a>(2)．JXLS安装</h3><p>为了使用JXLS引擎，你必须把jxls-core.jar添加到项目的classpath，如果计划使用JXLS来读取.xls文件，那么你必须还要把jxls-reader.jar加入到项目的classpath中。</p>
+<p>引入Maven依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.sf.jxls<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jxls-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-．JXLS用法"><a href="#3-．JXLS用法" class="headerlink" title="(3)．JXLS用法"></a>(3)．JXLS用法</h3><h4 id="1-属性访问"><a href="#1-属性访问" class="headerlink" title="1. 属性访问"></a>1. 属性访问</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">      Map&lt;String,Object&gt; result = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        result.put(<span class="string">"reportDate"</span>,today);</span><br><span class="line"> XLSTransformer transformer = <span class="keyword">new</span> XLSTransformer();</span><br><span class="line">transformer.transformXLS(xlsTemplateFileName,result);</span><br></pre></td></tr></table></figure>
+
+<p>访问Excel单元格中简单的bean属性：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;reportDate&#125;<span class="comment">//多级 , 就 benas.beans1 .beans2 .Filed</span></span><br></pre></td></tr></table></figure>
+
+<p>reportDate属性的值会被映射到Excel单元格中。</p>
+<h4 id="2-多属性遍历"><a href="#2-多属性遍历" class="headerlink" title="2. 多属性遍历"></a>2. 多属性遍历</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;jx:forEach  items&#x3D;&quot;$&#123;X&#125;&quot;  var&#x3D;&quot;Y&quot; &gt;   </span><br><span class="line">$&#123;Y.FILED&#125;</span><br><span class="line">&lt;&#x2F;jx:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>筛选功能</p>
+<p>‘select’属性来选择把哪些记录包含在循环中，例如，&lt; 1的数，我们可以使用下面的语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;jx:forEach items&#x3D;&quot;$&#123;X&#125;&quot;  var&#x3D;&quot;Y&quot; select&#x3D;&quot;$&#123;Y.Z &gt; 1&#125;&quot;&gt;</span><br><span class="line">    $&#123;Y.FILED1&#125;| $&#123;Y.FILED2&#125; | $&#123;Y.FILED3&#125;</span><br><span class="line">&lt;&#x2F;jx:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<p>varStatus 属性</p>
+<p>varStatus属性用来定义一个循环状态的名字，在每一次迭代中，循环状态对象会被传递到bean上下文。循环状态对象是LoopStatus类的一个实例，LoopStatus类有一个单一（静态）的’index’属性用来确定当前记录在集合中的索引值（索引值从0开始）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;jx:forEach   items&#x3D;&quot;$&#123;X&#125;&quot;  var&#x3D;&quot;Y&quot;  varStatus&#x3D;&quot;status&quot;&gt;</span><br><span class="line">      $&#123;status.index&#125;| $&#123;Y.FILED1&#125;| $&#123;Y.FILED2&#125; | $&#123;Y.FILED3&#125;</span><br><span class="line"> &lt;&#x2F;jx:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-条件判断"><a href="#3-条件判断" class="headerlink" title="3. 条件判断"></a>3. 条件判断</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;jx:if  test&#x3D;&quot;$&#123;X.Filed &gt; 2000.0&#125;&quot;&gt;</span><br><span class="line">     $&#123;Y.Filed&#125;</span><br><span class="line">&lt;&#x2F;jx:if&gt;</span><br></pre></td></tr></table></figure>
+
+<p>jx:if标签可以基于某些条件来排除某些行或是某些列<br>如果你把jx:if标签的开始标签和结束标签放在同一行的话，JXLS会根据test的条件来处理或删除包含在标签提内的列；<br>如果你把jx:if标签的开始标签和结束标签放在不同行的话，JXLS会根据test的条件来处理或删除包含在标签提内的行。</p>
+<h4 id="4-折叠"><a href="#4-折叠" class="headerlink" title="4. 折叠"></a>4. 折叠</h4><p><a href="jx:outline">jx:outline</a>标记有一个可选的布尔类型的属性“detail”声明结果初始化的状态-它们应该展开显示还是折叠显示，默认值是false即分组的行会被折叠显示（隐藏）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;jx:out&gt;</span><br><span class="line">	 $&#123;Y.Filed&#125;</span><br><span class="line">&lt;&#x2F;jx:out&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-融合SQL"><a href="#5-融合SQL" class="headerlink" title="5. 融合SQL"></a>5. 融合SQL</h4><p>执行SQL查询，并在Excel文件中显示查询结果，你必须在模板进行转换之前把一个特殊的bean写入bean上下文，这个特殊的bean要实现ReportManager接口。目前这个接口只有一个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Listexec</span><span class="params">(String sql)</span> <span class="keyword">throws</span> SQLException</span></span><br></pre></td></tr></table></figure>
+
+<p>这个方法的参数是一个SQL查询语句，执行结果，返回一个list(list的泛型是bean)</p>
+<p>JXLS对这个接口提供了一个默认的实现，叫做ReportManagerImpl，ReportManagerImpl使用owSetDynaClass来把ResultSet对象封装到对象集合中，下面是这个类的用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Map beans = newHashMap();</span><br><span class="line">ReportManager rm =<span class="keyword">new</span> ReportManagerImpl( conn, beans );</span><br><span class="line">beans.put(<span class="string">"rm"</span>,rm);</span><br><span class="line">InputStream is =<span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">"reportTemplate.xls"</span>));</span><br><span class="line">XLSTransformertransformer = <span class="keyword">new</span> XLSTransformer();</span><br><span class="line">HSSFWorkbookresultWorkbook = transformer.transformXLS(is, beans);</span><br></pre></td></tr></table></figure>
+
+<p>可以执行任何SQL查询语句通过把它作为参数传递给rm.exec()方法，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;rm.exec(&quot;SELECT Filed1, Filed2 FROM X&quot;)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>与 jx:forEach 标签结合起来使用来遍历bean的集合 (ResultSet) 并把它显示在Excel文件中</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">jx:forEachitems="$&#123;rm.exec('SELECT</span> <span class="attr">y.FILED1</span>, <span class="attr">y.FILED2</span>, <span class="attr">y.FILED3</span> <span class="attr">FROM</span> <span class="attr">Y</span> <span class="attr">y</span>')&#125;" <span class="attr">var</span>=<span class="string">"Y"</span>&gt;</span></span><br><span class="line"> 	  $&#123;Y.FILED1&#125;| $&#123;Y.FILED2&#125; | $&#123;Y.FILED3&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">jx:forEach</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="SQL子查询"><a href="#SQL子查询" class="headerlink" title="SQL子查询"></a>SQL子查询</h5><p>（子查询）用两个jx:forEach标签，当其中一个标签嵌套在令一个标签里面</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">jx:forEach</span> <span class="attr">items</span>=<span class="string">"$&#123;rm.exec('SELECT d.name, d.id FROM department d')&#125;"</span><span class="attr">var</span>=<span class="string">"dep"</span>&gt;</span></span><br><span class="line">     Department:$&#123;dep.name&#125;</span><br><span class="line">     Name |Payment | Bonus | Total</span><br><span class="line">   <span class="tag">&lt;<span class="name">jx:forEach</span> <span class="attr">items</span>=<span class="string">"$&#123;rm.exec('SELECT name,age, payment, bonus, birthDate FROM employee e where e.depid = ' +dep.id)&#125;"</span> <span class="attr">var</span>=<span class="string">"employee"</span>&gt;</span></span><br><span class="line">      $&#123;employee.empname&#125;|$&#123;employee.payment&#125;|$&#123;employee.bonus&#125;|$[B23*(1+C23)]</span><br><span class="line">   <span class="tag">&lt;/<span class="name">jx:forEach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">jx:forEach</span>&gt;</span>`</span><br></pre></td></tr></table></figure>
+
+<h5 id="语句包含参数"><a href="#语句包含参数" class="headerlink" title="语句包含参数"></a>语句包含参数</h5><p>使用外部参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Map beans = <span class="keyword">new</span> HashMap();</span><br><span class="line">ReportManager reportManager = <span class="keyword">new</span> ReportManagerImpl(conn, beans );</span><br><span class="line">beans.put(<span class="string">"rm"</span>, reportManager);</span><br><span class="line">beans.put(<span class="string">"minDate"</span>, <span class="string">"1979-01-01"</span>);</span><br><span class="line">XLSTransformer transformer = <span class="keyword">new</span> XLSTransformer();</span><br><span class="line">transformer.transformXLS(templateFileName, beans,destFileName);</span><br></pre></td></tr></table></figure>
+
+<p>上面我们把日期“1979-01-01”放到bean的上下文中，以minDate作为key,下面我们使用它来构建一条查询语句：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">jx:forEachitems="$&#123;rm.exec("SELECT</span> <span class="attr">d.name</span> <span class="attr">depname</span>, <span class="attr">e.name</span> <span class="attr">empname</span>, <span class="attr">age</span>,<span class="attr">payment</span>, <span class="attr">bonus</span>, <span class="attr">birthDate</span> <span class="attr">FROM</span> <span class="attr">employee</span> <span class="attr">e</span>, <span class="attr">department</span> <span class="attr">d</span> <span class="attr">WHERE</span> <span class="attr">d.id</span> = <span class="string">e.depidAND</span> <span class="attr">birthDate</span> &gt;</span> '1975-01-01' AND birthDate <span class="tag">&lt; '" + <span class="attr">minDate</span> + "'<span class="attr">order</span> <span class="attr">by</span> <span class="attr">age</span> <span class="attr">desc</span>")&#125;" <span class="attr">var</span>=<span class="string">"employee"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以从上面的语句中了解到如何在SQL查询语句中使用单引号。</p>
+
+          
+        
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>小劉感谢您的赞赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://t1.picb.cc/uploads/2020/02/13/kq1gjw.th.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBaits</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POI</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JXLS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -273,17 +385,82 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/03/09/Freemark%E9%9D%99%E6%80%81%E5%8C%96%E9%A1%B5%E9%9D%A2%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Freemarker静态化页面技术应用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
+
+        
+            <section id="comments" class="comments">
+              <style>
+                .comments{margin:30px;padding:10px;background:#fff}
+                @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+              </style>
+              <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "gMjbzdcA5SJmthmDiaNdbaIr-gzGzoHsz",
+        app_key: "hxnI79eJjp4VkO3sIDOC6P1t",
+        placeholder: "亲,赶紧评论一下吧",
+        avatar:"mm",
+    });
+</script>
+          </section>
+        
 
 
           </div>
@@ -333,9 +510,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
