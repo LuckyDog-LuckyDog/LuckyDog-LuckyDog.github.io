@@ -8,15 +8,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 爱学习,爱生活</title>
+  <title>生成pdf的两种技术--iText和jasper | 爱学习,爱生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="爱学习,爱生活">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="PDF生成技术的本章学习记录了两种 , 一种是IText , 一种是jasperReport , 推荐使用jasperReport , 因为通过jasper studio可以快速生产格式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生成pdf的两种技术--iText和jasper">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;16&#x2F;%E7%94%9F%E6%88%90pdf%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8A%80%E6%9C%AF-iText%E5%92%8Cjasper&#x2F;index.html">
 <meta property="og:site_name" content="爱学习,爱生活">
+<meta property="og:description" content="PDF生成技术的本章学习记录了两种 , 一种是IText , 一种是jasperReport , 推荐使用jasperReport , 因为通过jasper studio可以快速生产格式">
 <meta property="og:locale" content="中文">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;16&#x2F;8Y9SRs.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;16&#x2F;8Y9AdU.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;15&#x2F;88UZh4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;15&#x2F;88d66s.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;16&#x2F;8J7j56.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;16&#x2F;8Y9tWd.png">
+<meta property="article:published_time" content="2020-03-16T10:13:40.000Z">
+<meta property="article:modified_time" content="2020-03-16T10:13:40.835Z">
 <meta property="article:author" content="小劉">
+<meta property="article:tag" content="iText">
+<meta property="article:tag" content="Jasper">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;16&#x2F;8Y9SRs.png">
   
     <link rel="alternative" href="/atom.xml" title="爱学习,爱生活" type="application/atom+xml">
   
@@ -216,290 +229,169 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
-    
+            <article id="post-生成pdf的两种技术-iText和jasper" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
       
+	  <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      生成pdf的两种技术--iText和jasper
+    </h1>
+  
+
+        
+        <a href="/2020/03/16/%E7%94%9F%E6%88%90pdf%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8A%80%E6%9C%AF-iText%E5%92%8Cjasper/" class="archive-article-date">
+  	<time datetime="2020-03-16T10:13:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+</a>
+        
+		
+		
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+   
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/11/%E5%9F%BA%E4%BA%8E%E8%87%AA%E5%88%B6SpringMvc%E6%A1%86%E6%9E%B6%E7%9A%84%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-02-11T07:54:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/11/%E5%9F%BA%E4%BA%8E%E8%87%AA%E5%88%B6SpringMvc%E6%A1%86%E6%9E%B6%E7%9A%84%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/">基于自制SpringMvc框架的权限校验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
+        
           
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">invoke</a>
-        		</li>
-      		
-		</ul>
-	</div>
+            <p>PDF生成技术的本章学习记录了两种 , 一种是IText , 一种是jasperReport , 推荐使用jasperReport , 因为通过jasper studio可以快速生产格式</p>
+<a id="more"></a>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<h2 id="项目整合两种技术的效果"><a href="#项目整合两种技术的效果" class="headerlink" title="项目整合两种技术的效果"></a>项目整合两种技术的效果</h2><h3 id="iText整合"><a href="#iText整合" class="headerlink" title="iText整合"></a>iText整合</h3><p><img src="https://s1.ax1x.com/2020/03/16/8Y9SRs.png" alt="8Y9SRs.png"></p>
+<h3 id="Jasper整合"><a href="#Jasper整合" class="headerlink" title="Jasper整合"></a>Jasper整合</h3><p><img src="https://s1.ax1x.com/2020/03/16/8Y9AdU.png" alt="8Y9AdU.png"></p>
+<h2 id="两种技术的应用"><a href="#两种技术的应用" class="headerlink" title="两种技术的应用"></a>两种技术的应用</h2><h3 id="IText"><a href="#IText" class="headerlink" title="IText"></a>IText</h3><p> 通过iText不仅可以生成PDF或rtf的文档，而且可以将XML、Html文件转化为PDF文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--坐标导入--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--导入Itext报表--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lowagie<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>itext<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 导入iText报表，支持中文 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;dependency 不兼容原因见图片分析&gt;</span></span><br><span class="line"><span class="comment">  &lt;groupId&gt;com.itextpdf&lt;/groupId&gt;</span></span><br><span class="line"><span class="comment">  &lt;artifactId&gt;itext-asian&lt;/artifactId&gt;</span></span><br><span class="line"><span class="comment">  &lt;version&gt;5.2.0&lt;/version&gt;</span></span><br><span class="line"><span class="comment">&lt;/dependency&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lowagie<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>itextasian<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上述异常分析</p>
+<p><img src="https://s1.ax1x.com/2020/03/15/88UZh4.png" alt="88UZh4.png"></p>
+<p>整合项目</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">            Map map = orderService.findById(id);</span><br><span class="line">            Integer setmealId = (Integer)map.get(<span class="string">"setmealId"</span>);</span><br><span class="line">            String membername = (String) map.get(<span class="string">"member"</span>);</span><br><span class="line">            Setmeal setmeal = setMealService.findById(setmealId);</span><br><span class="line">            response.setContentType(<span class="string">"application/pdf"</span>);</span><br><span class="line">            String filename = membername+<span class="string">"的预约信息.pdf"</span>;</span><br><span class="line">            filename = URLEncoder.encode(filename, <span class="string">"utf-8"</span>);<span class="comment">//chrome浏览器解码</span></span><br><span class="line">            <span class="comment">// 设置以附件的形式导出</span></span><br><span class="line">            response.setHeader(<span class="string">"Content-Disposition"</span>,</span><br><span class="line">                    <span class="string">"attachment;filename="</span> + filename);</span><br><span class="line"></span><br><span class="line">            Document document = <span class="keyword">new</span> Document();</span><br><span class="line">            PdfWriter pdfWriter = PdfWriter.getInstance(document, response.getOutputStream());</span><br><span class="line">            document.open();</span><br><span class="line">            <span class="comment">//创建字体</span></span><br><span class="line">            BaseFont cn = BaseFont.createFont(<span class="string">"STSongStd-Light"</span>, <span class="string">"UniGB-UCS2-H"</span>, <span class="keyword">false</span>);</span><br><span class="line">            Font font = <span class="keyword">new</span> Font(cn, <span class="number">10</span>, Font.NORMAL, Color.gray);</span><br><span class="line">            <span class="comment">// 写PDF数据</span></span><br><span class="line">            <span class="comment">// 输出订单和套餐信息</span></span><br><span class="line">            <span class="comment">// 体检人</span></span><br><span class="line">            document.add(<span class="keyword">new</span> Paragraph(<span class="string">"体检人："</span>+(String)map.get(<span class="string">"member"</span>), font));</span><br><span class="line">            <span class="comment">// 体检套餐</span></span><br><span class="line">            document.add(<span class="keyword">new</span> Paragraph(<span class="string">"体检套餐："</span>+(String)map.get(<span class="string">"setmeal"</span>), font));</span><br><span class="line">            <span class="comment">// 体检日期</span></span><br><span class="line">            document.add(<span class="keyword">new</span> Paragraph(<span class="string">"体检日期："</span>+(String) map.get(<span class="string">"orderDate"</span>).toString(), font));</span><br><span class="line">            <span class="comment">// 预约类型</span></span><br><span class="line">            document.add(<span class="keyword">new</span> Paragraph(<span class="string">"预约类型："</span>+(String)map.get(<span class="string">"orderType"</span>), font));</span><br><span class="line">            <span class="comment">// 向document 生成pdf表格</span></span><br><span class="line">            Table table = <span class="keyword">new</span> Table(<span class="number">3</span>);<span class="comment">//创建3列的表格</span></span><br><span class="line">            table.setWidth(<span class="number">80</span>); <span class="comment">// 宽度</span></span><br><span class="line">            table.setBorder(<span class="number">1</span>); <span class="comment">// 边框</span></span><br><span class="line">            table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER); <span class="comment">//水平对齐方式</span></span><br><span class="line">            table.getDefaultCell().setVerticalAlignment(Element.ALIGN_TOP); <span class="comment">// 垂直对齐方式</span></span><br><span class="line">            <span class="comment">/*设置表格属性*/</span></span><br><span class="line">            table.setBorderColor(<span class="keyword">new</span> Color(<span class="number">128</span>, <span class="number">128</span>, <span class="number">128</span>)); <span class="comment">//将边框的颜色设置为灰色</span></span><br><span class="line">            table.setPadding(<span class="number">5</span>);<span class="comment">//设置表格与字体间的间距</span></span><br><span class="line"><span class="comment">//table.setSpacing(5);//设置表格上下的间距</span></span><br><span class="line">            table.setAlignment(Element.ALIGN_CENTER);<span class="comment">//设置字体显示居中样式</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 写表头</span></span><br><span class="line">            table.addCell(buildCell(<span class="string">"项目名称"</span>, font));</span><br><span class="line">            table.addCell(buildCell(<span class="string">"项目内容"</span>, font));</span><br><span class="line">            table.addCell(buildCell(<span class="string">"项目解读"</span>, font));</span><br><span class="line">            <span class="comment">// 写数据</span></span><br><span class="line">            <span class="keyword">for</span> (CheckGroup checkGroup : setmeal.getCheckGroups()) &#123;</span><br><span class="line">                table.addCell(buildCell(checkGroup.getName(), font));</span><br><span class="line">                <span class="comment">// 组织检查项集合</span></span><br><span class="line">                StringBuffer checkItems = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">                <span class="keyword">for</span> (CheckItem checkItem : checkGroup.getCheckItems()) &#123;</span><br><span class="line">                    checkItems.append(checkItem.getName()+<span class="string">"  "</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                table.addCell(buildCell(checkItems.toString(), font));</span><br><span class="line">                table.addCell(buildCell(checkGroup.getRemark(), font));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 将表格加入文档</span></span><br><span class="line">            document.add(table);</span><br><span class="line">            document.close();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Result(<span class="keyword">false</span>, MessageConstant.GET_BUSINESS_REPORT_FAIL,<span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/14/%E8%87%AA%E5%AE%9A%E4%B9%89SpringMvc%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/" class="archive-article-date">
-  	<time datetime="2020-01-14T13:33:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/14/%E8%87%AA%E5%AE%9A%E4%B9%89SpringMvc%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/">自定义SpringMvc基本框架</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">invoke</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">annotation</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<h3 id="JasperReport"><a href="#JasperReport" class="headerlink" title="JasperReport"></a>JasperReport</h3><p>一般情况下，JasperReports会结合Jaspersoft Studio(模板设计器)使用导出PDF报表。方便 , 快捷</p>
+<p>引入坐标</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">jasperreports</span>&gt;</span>6.8.0<span class="tag">&lt;/<span class="name">jasperreports</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.sf.jasperreports<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jasperreports<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;jasperreports&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>原理</p>
+<p><img src="https://s1.ax1x.com/2020/03/15/88d66s.png" alt="88d66s.png"></p>
+<p>由于jasper同样不支持中文 , 所以需要引入三方配置来进行解析中文 , 否则无法显示中文 , 一定要注意</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8J7j56.png" alt="8J7j56.png"></p>
+<p>注意注意 : 这里涉及的<strong>所有中文</strong>和<strong>模板公式</strong>都要设置华文宋体 , 不然中文不出来</p>
+<p><img src="https://s1.ax1x.com/2020/03/16/8Y9tWd.png" alt="8Y9tWd.png"></p>
+<p>整合项目</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">Map map = orderService.findById(id);</span><br><span class="line">   Map&lt;String, Object&gt; result = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">   Integer setmealId = (Integer) map.get(<span class="string">"setmealId"</span>);</span><br><span class="line">   result.put(<span class="string">"member"</span>,(String) map.get(<span class="string">"member"</span>));</span><br><span class="line">   result.put(<span class="string">"setmeal"</span>,(String)map.get(<span class="string">"setmeal"</span>));</span><br><span class="line">   result.put(<span class="string">"orderDate"</span>,map.get(<span class="string">"orderDate"</span>).toString());</span><br><span class="line">   result.put(<span class="string">"orderType"</span>,(String) map.get(<span class="string">"orderType"</span>));</span><br><span class="line">   result.put(<span class="string">"company"</span>,<span class="string">"晚风的岁月"</span>);</span><br><span class="line"></span><br><span class="line">   java.util.List&lt;Object&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">   Setmeal setmeal = setMealService.findById(setmealId);</span><br><span class="line">   <span class="keyword">for</span> (CheckGroup checkGroup : setmeal.getCheckGroups()) &#123;</span><br><span class="line">       <span class="comment">// 组织检查项集合</span></span><br><span class="line">       StringBuffer checkItemName = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">       <span class="keyword">for</span> (CheckItem checkItem : checkGroup.getCheckItems()) &#123;</span><br><span class="line">           checkItemName.append(checkItem.getName()+<span class="string">"  "</span>);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       HashMap&lt;String, Object&gt; hashMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">       hashMap.put(<span class="string">"checkGroupName"</span>,checkGroup.getName());</span><br><span class="line">       hashMap.put(<span class="string">"itemName"</span>,checkItemName.toString());</span><br><span class="line">       hashMap.put(<span class="string">"checkGroupRemark"</span>,checkGroup.getRemark());</span><br><span class="line">       list.add(hashMap);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="comment">//动态获取模板文件绝对磁盘路径</span></span><br><span class="line">   String jrxmlPath =</span><br><span class="line">           request.getSession().getServletContext().getRealPath(<span class="string">"template"</span>) + File.separator + <span class="string">"orderInfo.jrxml"</span>;</span><br><span class="line">   String jasperPath =</span><br><span class="line">           request.getSession().getServletContext().getRealPath(<span class="string">"template"</span>) + File.separator + <span class="string">"orderInfo.jasper"</span>;</span><br><span class="line">       <span class="comment">//编译模版</span></span><br><span class="line">   JasperCompileManager.compileReportToFile(jrxmlPath, jasperPath);</span><br><span class="line">   <span class="comment">//填充数据---使用JavaBean数据源方式填充</span></span><br><span class="line">   JasperPrint jasperPrint = JasperFillManager.fillReport(jasperPath,result, <span class="keyword">new</span> JRBeanCollectionDataSource(list));</span><br><span class="line">   response.setContentType(<span class="string">"application/pdf"</span>);</span><br><span class="line">   String filename = (String) map.get(<span class="string">"member"</span>)+<span class="string">"的预约信息.pdf"</span>;</span><br><span class="line">   filename = URLEncoder.encode(filename, <span class="string">"utf-8"</span>);<span class="comment">//chrome浏览器解码</span></span><br><span class="line">   <span class="comment">// 设置以附件的形式导出</span></span><br><span class="line">   response.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename="</span> + filename);</span><br><span class="line">   ServletOutputStream out = response.getOutputStream();</span><br><span class="line">   JasperExportManager.exportReportToPdfStream(jasperPrint,out);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
 
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/13/MyBaits%E6%8A%80%E6%9C%AF/" class="archive-article-date">
-  	<time datetime="2020-01-13T09:55:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/13/MyBaits%E6%8A%80%E6%9C%AF/">MyBaits技术</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBaits</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/01/%E9%A1%B5%E9%9D%A2%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2020-01-01T05:10:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/01/%E9%A1%B5%E9%9D%A2%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/">页面操作数据库系统</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JSP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>小劉感谢您的赞赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://t1.picb.cc/uploads/2020/02/13/kq1gjw.th.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/27/%E6%B1%A4%E5%A7%86%E7%8C%AB%E4%B9%8BSession/" class="archive-article-date">
-  	<time datetime="2019-12-27T12:29:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/27/%E6%B1%A4%E5%A7%86%E7%8C%AB%E4%B9%8BSession/">汤姆猫之Session</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">iText</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JSP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Jasper</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -512,124 +404,82 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/22/%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS/" class="archive-article-date">
-  	<time datetime="2019-12-22T09:23:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/14/%E5%86%99%E5%85%A5Excel%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8A%80%E6%9C%AF-POI%E5%92%8CJXLS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">写入Excel的两种技术--POI和JXLS</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/22/%E8%87%AA%E5%AE%9A%E4%B9%89DBUTILS/">自定义DBUTILS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/15/This-is-my-first-blog-in-my-life-%E5%B0%8F%E5%8A%89/" class="archive-article-date">
-  	<time datetime="2019-12-15T12:54:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/15/This-is-my-first-blog-in-my-life-%E5%B0%8F%E5%8A%89/">This is my first blog in my life   ----小劉</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/15/hello-world/" class="archive-article-date">
-  	<time datetime="2019-12-15T12:43:22.816Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/15/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
   
+
+
+
+
+        
+            <section id="comments" class="comments">
+              <style>
+                .comments{margin:30px;padding:10px;background:#fff}
+                @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+              </style>
+              <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "gMjbzdcA5SJmthmDiaNdbaIr-gzGzoHsz",
+        app_key: "hxnI79eJjp4VkO3sIDOC6P1t",
+        placeholder: "亲,赶紧评论一下吧",
+        avatar:"mm",
+    });
+</script>
+          </section>
+        
 
 
           </div>
@@ -679,8 +529,8 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
