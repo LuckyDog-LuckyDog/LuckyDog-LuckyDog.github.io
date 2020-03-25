@@ -8,15 +8,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>爱学习,爱生活</title>
+  <title>Java基础-线程 | 爱学习,爱生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="爱学习,爱生活">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="线程是一个程序内部的一条执行路径 ; 线程做为调度和执行的单位, 每个线程拥有独立的运行栈和程序计数器 , 线程切换的开销小比进程小">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础-线程">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;25&#x2F;Java%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B&#x2F;index.html">
 <meta property="og:site_name" content="爱学习,爱生活">
+<meta property="og:description" content="线程是一个程序内部的一条执行路径 ; 线程做为调度和执行的单位, 每个线程拥有独立的运行栈和程序计数器 , 线程切换的开销小比进程小">
 <meta property="og:locale" content="中文">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;17&#x2F;8NCID1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190809170223640.png?x-oss-process&#x3D;image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2phdmFfbHl2ZWU&#x3D;,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;17&#x2F;8dPsnH.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;21&#x2F;8hu7tS.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;21&#x2F;8hKkc9.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;21&#x2F;8huyFO.png">
+<meta property="article:published_time" content="2020-03-25T15:24:14.000Z">
+<meta property="article:modified_time" content="2020-03-25T15:31:59.379Z">
 <meta property="article:author" content="小劉">
+<meta property="article:tag" content="线程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;03&#x2F;17&#x2F;8NCID1.png">
   
     <link rel="alternative" href="/atom.xml" title="爱学习,爱生活" type="application/atom+xml">
   
@@ -216,17 +228,15 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Java基础-线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Java基础-线程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
 	  <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/25/Java%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B/">Java基础-线程</a>
+    <h1 class="article-title" itemprop="name">
+      Java基础-线程
     </h1>
   
 
@@ -237,6 +247,10 @@
         
 		
 		
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
 
       </header>
     
@@ -245,10 +259,148 @@
    
       
         
-          		<p>线程是一个程序内部的一条执行路径 ; 线程做为调度和执行的单位, 每个线程拥有独立的运行栈和程序计数器 , 线程切换的开销小比进程小</p>
+          
+            <p>线程是一个程序内部的一条执行路径 ; 线程做为调度和执行的单位, 每个线程拥有独立的运行栈和程序计数器 , 线程切换的开销小比进程小</p>
+<a id="more"></a>
+
+<h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><blockquote>
+<p>程序 : 为完成特定任务 , 用某种语言编写的一组指令 . 即指的是一段静态的代码</p>
+</blockquote>
+<blockquote>
+<p>进程 : 程序的一次执行过程或是正在运行的一个程序 . 这说明了资源分配的单位 , 程序在运行时会为每个进程分配不同的内存区域 ,进程可以细分为多个线程 , <strong>每个线程</strong>,有自己独立的 :栈 , 程序计数器 <strong>; 多个线程</strong> , 共享一个进程中的结构 : 方法区和堆</p>
+</blockquote>
+<blockquote>
+<p>线程 : 是一个程序内部的一条执行路径 ; 线程做为调度和执行的单位, 每个线程拥有独立的运行栈和程序计数器 , 线程切换的开销小</p>
+</blockquote>
+<blockquote>
+<p>并行 : 多个CPU同时执行多个任务 ,<br>并发 : 一个CPU(采用调度)同时执行多个任务</p>
+</blockquote>
+<h2 id="创建线程的四种方式"><a href="#创建线程的四种方式" class="headerlink" title="创建线程的四种方式"></a>创建线程的四种方式</h2><h3 id="1-继承Thread类"><a href="#1-继承Thread类" class="headerlink" title="1 ). 继承Thread类"></a>1 ). 继承Thread类</h3><ol>
+<li>定义Thread类的子类，并重写该类的run()方法，该run()方法的方法体就代表了线程需要完成的任务,因此把<br>run()方法称为线程执行体。</li>
+<li>创建Thread子类的实例，即创建了线程对象</li>
+<li>调用线程对象的start()方法来启动该线程 </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">构造方法：</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">()</span> :分配一个新的线程对象。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">(String name)</span> :分配一个指定名字的新的线程对象。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">(Runnable target)</span> :分配一个带有指定目标新的线程对象。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Thread</span><span class="params">(Runnable target,String name)</span> :分配一个带有指定目标新的线程对象并指定名字。</span></span><br><span class="line"><span class="function">常用方法：</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> :获取当前线程名称。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> :导致此线程开始执行</span>; Java虚拟机调用此线程的run方法。</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> :此线程要执行的任务在此处定义代码。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sleep</span><span class="params">(<span class="keyword">long</span> millis)</span> :使当前正在执行的线程以指定的毫秒数暂停（暂时停止执行）。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">yield</span><span class="params">()</span> : 线程让步 , 释放当前cpu的执行权</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">join</span><span class="params">()</span> : 在线程a中调用线程b的<span class="title">join</span><span class="params">()</span> , 此时线程a进入阻塞状态 , 直到线程b完全执行后,a结束阻塞状态</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Thread <span class="title">currentThread</span><span class="params">()</span> :返回对当前正在执行的线程对象的引用。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-实现Runnable接口"><a href="#2-实现Runnable接口" class="headerlink" title="2 ).实现Runnable接口"></a>2 ).实现Runnable接口</h3><ol>
+<li>定义Runnable接口的实现类，并重写该接口的run()方法，该run()方法的方法体同样是该线程的线程执行体。</li>
+<li>创建Runnable实现类的实例，并以此实例作为Thread对象参数来创建Thread对象，该Thread对象才是真正<br>的线程对象。</li>
+<li>调用线程对象的start()方法来启动线程。 </li>
+</ol>
+<blockquote>
+<p><strong>★Thread类与Runnable接口两种方式的区别</strong></p>
+<p>一个类继承Thread，则不适合资源共享。但是如果实现了Runable接口的话，则很容易的实现资源共享 </p>
+<p>实现Runnable接口比继承Thread类所具有的优势：</p>
+<ol>
+<li>适合多个相同的程序代码的线程去共享同一个资源。</li>
+<li>可以避免java中的单继承的局限性。</li>
+<li>增加程序的健壮性，实现解耦操作，代码可以被多个线程共享，代码和线程独立。</li>
+<li>线程池只能放入实现Runable或Callable类线程，不能直接放入继承Thread的类。</li>
+</ol>
+</blockquote>
+<p><strong>★结论 : 开发中优先选择Runnable接口实现</strong></p>
+<h3 id="3-实现Callable接口"><a href="#3-实现Callable接口" class="headerlink" title="3 ). 实现Callable接口"></a>3 ). 实现Callable接口</h3><ol>
+<li>创建一个实现Callable的实现类</li>
+<li>重写Call方法 , 将此线程需要执行的操作声明在Call( )中</li>
+<li>创建Callable接口的实现类对象</li>
+<li>将实现类对象传递到FutureTask的构造器中 ,创建FutureTask对象</li>
+<li>将FutureTask对象做为参数传递Thread类的构造器中 , 创建Thread对象 ,调用start 方法</li>
+<li>这里 可以回去Callable中的Call方法的返回值 , FutrueTask对象调用get()可以获取</li>
+</ol>
+<blockquote>
+<p>  <strong>★多线程实现Callable接口比Runnable接口强大</strong></p>
+<ol>
+<li>call()可以有返回值</li>
+<li>call()可以抛出异常 , 被外面的操作捕获 , 获取异常的信息</li>
+<li>Callable支持泛型</li>
+</ol>
+</blockquote>
+<h3 id="4-线程池创建"><a href="#4-线程池创建" class="headerlink" title="4 ). 线程池创建"></a>4 ). 线程池创建</h3><ol>
+<li>创建线程池对象。 public static ExecutorService newFixedThreadPool(int nThreads)  </li>
+<li>创建Runnable接口子类对象。 </li>
+<li>提交Runnable接口子类对象。public Future&lt;?&gt; submit(Runnable task)  </li>
+<li>关闭线程池</li>
+</ol>
+<blockquote>
+</blockquote>
+<h2 id="线程的六个生命周期"><a href="#线程的六个生命周期" class="headerlink" title="线程的六个生命周期"></a>线程的六个生命周期</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> State &#123;</span><br><span class="line">       NEW, <span class="comment">//新建 创建线程对象,但没有调用start()方法</span></span><br><span class="line">       RUNNABLE,<span class="comment">//可运行 线程已经start()方法,可能在运行代码,也可能没在运行代码</span></span><br><span class="line">       BLOCKED,<span class="comment">//锁阻塞 一个线程视图获取锁,但是没有获取到锁</span></span><br><span class="line">       WAITING,<span class="comment">//无限等待 一个线程在等待另一个线程的唤醒动作.</span></span><br><span class="line">       TIMED_WAITING, <span class="comment">//计时等待 一个线程设置了休眠的时间</span></span><br><span class="line">       TERMINATED;<span class="comment">//被终止 run方法执行完毕,或者线程执行出现异常而没有捕获处理 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s1.ax1x.com/2020/03/17/8NCID1.png" alt="8NCID1.png"></p>
+<h2 id="线程安全的两种方式"><a href="#线程安全的两种方式" class="headerlink" title="线程安全的两种方式"></a>线程安全的两种方式</h2><h3 id="Synchronized锁"><a href="#Synchronized锁" class="headerlink" title="Synchronized锁"></a>Synchronized锁</h3><h4 id="1-同步代码块"><a href="#1-同步代码块" class="headerlink" title="1). 同步代码块"></a>1). 同步代码块</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(锁对象)&#123;&#125; </span><br><span class="line">锁对象: 多条线程想要实现同步,那么必须锁对象一致 , (<span class="keyword">this</span>必须慎用)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-同步方法"><a href="#2-同步方法" class="headerlink" title="2). 同步方法"></a>2). 同步方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">格式:在返回值类型前面加上 <span class="keyword">synchronized</span>关键字进行修饰</span><br><span class="line">锁对象:</span><br><span class="line"><span class="number">1</span>) 非静态同步方法:锁对象是<span class="keyword">this</span> (慎用)</span><br><span class="line"><span class="number">2</span>) 静态同步方法:锁对象是该方法所在类的字节码文件对象 获取方式: 类名<span class="class">.<span class="keyword">class</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Lock锁"><a href="#Lock锁" class="headerlink" title="Lock锁"></a>Lock锁</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用lock的实现类ReentrantLock</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span> :加同步锁。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span> :释放同步锁</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Synchronized与Lock两者之间的不同"><a href="#Synchronized与Lock两者之间的不同" class="headerlink" title="Synchronized与Lock两者之间的不同"></a>Synchronized与Lock两者之间的不同</h3><p>相同 : 都是为了解决线程安全</p>
+<p>不同点 : Synchronized机制在执行完同步代码之后 就会自动的释放同步监视器</p>
+<p>​        Lock需要手动的启动同步(lock()) , 同时结束时也需要手动实现(unlock())</p>
+<h2 id="线程间的通讯"><a href="#线程间的通讯" class="headerlink" title="线程间的通讯"></a>线程间的通讯</h2><p>wait() : 一旦执行此方法 ,当前线程进入阻塞状态 ,并释放同步监视器</p>
+<p>notify() : 一旦执行此方法 , 就会唤醒被wait的一个线程 . 如果是多线程 , 唤醒优先级高的线程</p>
+<p>notifyAll() : 一旦执行此方法 , 就会唤醒所有被wait()的线程</p>
+<p>注意 : </p>
+<ol>
+<li>wait() , notify() , notifyAll () 三个方法必须使用在同步代码块或同步方法中</li>
+<li>wait() , notify() , notifyAll () 的调用者必须是同步代码块或同步方法中的同步监视器 , 否则就会出现IllegelMonitorStateException异常</li>
+<li>为确保所有对象都能充当同步监视器 , 那么wait() , notify() , notifyAll ()三个方法都是定义在java.lang.Object上</li>
+</ol>
+<blockquote>
+<p><strong>★sleep() 和wait () 的异同?</strong></p>
+<p>相同点 : 一旦执行方法 , 都可以使得当前的线程进入阻塞状态</p>
+<p>不同点 : 1) 两个方法声明的位置不同 : thread类中声明了sleep() , Object类中声明wait()</p>
+<p>​        2) 调用的要求不同 : sleep()可以在任何需要的场景下调用 , wait()必须使用同步代码锁</p>
+<p>​        3) 关于是否释放同步监视器 : 如果两个方法都使用在同步代码块或同步方法中 , sleep() 不会释放锁 , 而wait () 会释放锁</p>
+</blockquote>
+<h1 id="AQS分析-转述-分析"><a href="#AQS分析-转述-分析" class="headerlink" title="AQS分析(转述+分析)"></a>AQS分析(转述+分析)</h1><p>java有了synchronized关键字为什么还会有 Reentrantlock?</p>
+<p>线程在执行的时候会调用start的本地方法 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">start0</span><span class="params">()</span></span>;<span class="comment">//说明Jvm的线程==操作系统的线程 , 那么synchronized就会去操作操作系统的函数来使线程进行阻塞</span></span><br></pre></td></tr></table></figure>
+
+<p>1.6之前 , 线程synchronized会操作系统的函数 ,这样每次进行同步的话 ,CPU就会从用户态–&gt;内核态–&gt;用户态 , 那么程序的效率就会降低 ,于是就有了Reentrantlock</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LockSupport</span> </span>&#123;   </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">park</span><span class="params">()</span> </span>&#123;<span class="comment">//停车 ,调用该方法线程就会即时阻塞</span></span><br><span class="line">        UNSAFE.park(<span class="keyword">false</span>, <span class="number">0L</span>);&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190809170223640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2phdmFfbHl2ZWU=,size_16,color_FFFFFF,t_70" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReentrantLock</span> <span class="keyword">implements</span> <span class="title">Lock</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">7373984872572414699L</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Sync sync;<span class="comment">//其中Sync 继承的就是AQS</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">abstract</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Sync</span> <span class="keyword">extends</span> <span class="title">AbstractQueuedSynchronizer</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">5179523762034025860L</span>;</span><br><span class="line">        <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span></span>;&#125;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ReentrantLock</span><span class="params">()</span> </span>&#123;sync = <span class="keyword">new</span> NonfairSync(); &#125;<span class="comment">//无参构造为非公平锁</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ReentrantLock</span><span class="params">(<span class="keyword">boolean</span> fair)</span> </span>&#123;sync = fair ? <span class="keyword">new</span> FairSync() : <span class="keyword">new</span> NonfairSync();&#125;<span class="comment">//true为公平锁 , false为非公平锁</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">FairSync</span> <span class="keyword">extends</span> <span class="title">Sync</span> </span>&#123;<span class="comment">//非公平锁分析</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">3000897897090466540L</span>;</span><br><span class="line">		<span class="comment">//上锁</span></span><br><span class="line">        <span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span> </span>&#123;acquire(<span class="number">1</span>);&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">acquire</span><span class="params">(<span class="keyword">int</span> arg)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//交替执行时为false , 线程竞争的时候为true , 加入队列</span></span><br><span class="line">        <span class="keyword">if</span> (!tryAcquire(arg) &amp;&amp;</span><br><span class="line">            acquireQueued(addWaiter(Node.EXCLUSIVE), arg))<span class="comment">//这里持有锁的线程,可能释放锁</span></span><br><span class="line">            selfInterrupt();&#125;</span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">tryAcquire</span> <span class="params">(<span class="keyword">int</span> acquires)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">final</span> Thread current = Thread.currentThread();</span><br><span class="line">            <span class="keyword">int</span> c = getState();</span><br><span class="line">      <span class="comment">//判断锁的状态</span></span><br><span class="line">            <span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</span><br><span class="line">              <span class="comment">//线程在交替执行的时候在JVM上进行判断操作,不切换内核 , 所以轻量锁</span></span><br><span class="line">                <span class="keyword">if</span> (!hasQueuedPredecessors() &amp;&amp;</span><br><span class="line">                    compareAndSetState(<span class="number">0</span>, acquires)) &#123;</span><br><span class="line">                    setExclusiveOwnerThread(current);</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">      <span class="comment">//重入锁的来由 , 线程竞争的时候 ,return false</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (current == getExclusiveOwnerThread()) &#123;</span><br><span class="line">                <span class="keyword">int</span> nextc = c + acquires;</span><br><span class="line">                <span class="keyword">if</span> (nextc &lt; <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"Maximum lock count exceeded"</span>);</span><br><span class="line">                setState(nextc);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>; &#125;<span class="keyword">return</span> <span class="keyword">false</span>;&#125;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">tryAcquire</span><span class="params">(<span class="keyword">int</span> arg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">hasQueuedPredecessors</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Node t = tail;</span><br><span class="line">        Node h = head;</span><br><span class="line">        Node s;</span><br><span class="line">        <span class="keyword">return</span> h != t &amp;&amp;</span><br><span class="line">            ((s = h.next) == <span class="keyword">null</span> || s.thread != Thread.currentThread());</span><br><span class="line">    &#125;<span class="comment">//交替执行,不产生队列的情况下 , 返回false , 有竞争的时候就会队列</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">compareAndSetState</span><span class="params">(<span class="keyword">int</span> expect, <span class="keyword">int</span> update)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> unsafe.compareAndSwapInt(<span class="keyword">this</span>, stateOffset, expect, update);<span class="comment">//CAS机制</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setExclusiveOwnerThread</span><span class="params">(Thread thread)</span> </span>&#123;</span><br><span class="line">        exclusiveOwnerThread = thread;</span><br><span class="line">    </span><br><span class="line">      </span><br><span class="line">	<span class="comment">//线程竞争加入队列</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Node <span class="title">addWaiter</span><span class="params">(Node mode)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//创建竞争线程的节点</span></span><br><span class="line">        Node node = <span class="keyword">new</span> Node(Thread.currentThread(), mode);</span><br><span class="line"></span><br><span class="line">        Node pred = tail;</span><br><span class="line">      <span class="comment">//第一次这里为空 , 直接执行enq(),创建一个空的节点,头尾均指向他</span></span><br><span class="line">        <span class="keyword">if</span> (pred != <span class="keyword">null</span>) &#123;</span><br><span class="line">            node.prev = pred;</span><br><span class="line">            <span class="keyword">if</span> (compareAndSetTail(pred, node)) &#123;</span><br><span class="line">                pred.next = node;</span><br><span class="line">                <span class="keyword">return</span> node;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        enq(node);</span><br><span class="line">        <span class="keyword">return</span> node;&#125;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//链表队列的维护</span></span><br><span class="line">          <span class="function"><span class="keyword">private</span> Node <span class="title">enq</span><span class="params">(<span class="keyword">final</span> Node node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">            Node t = tail;</span><br><span class="line">            <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123; <span class="comment">// Must initialize</span></span><br><span class="line">                <span class="keyword">if</span> (compareAndSetHead(<span class="keyword">new</span> Node()))</span><br><span class="line">                    tail = head;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                node.prev = t;</span><br><span class="line">                <span class="keyword">if</span> (compareAndSetTail(t, node)) &#123;</span><br><span class="line">                    t.next = node;</span><br><span class="line">                    <span class="keyword">return</span> t; &#125;&#125;&#125;&#125;</span><br><span class="line">      </span><br><span class="line">      	<span class="comment">//Node的构造方法</span></span><br><span class="line">             Node(Thread thread, Node mode) &#123;     <span class="comment">// Used by addWaiter</span></span><br><span class="line">            <span class="keyword">this</span>.nextWaiter = mode;</span><br><span class="line">            <span class="keyword">this</span>.thread = thread;</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//是否真的排队 ,因为此时可能持有锁的线程 释放了锁</span></span><br><span class="line">          <span class="function"><span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">acquireQueued</span><span class="params">(<span class="keyword">final</span> Node node, <span class="keyword">int</span> arg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> failed = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">boolean</span> interrupted = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">for</span> (;;) &#123;<span class="comment">//自旋</span></span><br><span class="line">                <span class="keyword">final</span> Node p = node.predecessor();<span class="comment">//上一个节点</span></span><br><span class="line">                <span class="keyword">if</span> (p == head &amp;&amp; tryAcquire(arg)) &#123;</span><br><span class="line">                    setHead(node);</span><br><span class="line">                    p.next = <span class="keyword">null</span>; <span class="comment">// help GC</span></span><br><span class="line">                    failed = <span class="keyword">false</span>;</span><br><span class="line">                    <span class="keyword">return</span> interrupted;</span><br><span class="line">                &#125;</span><br><span class="line">              <span class="comment">//加锁失败后,需不需要阻塞</span></span><br><span class="line">                <span class="keyword">if</span> (shouldParkAfterFailedAcquire(p, node) &amp;&amp;</span><br><span class="line">                    parkAndCheckInterrupt())</span><br><span class="line">                    interrupted = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123; </span><br><span class="line">            <span class="keyword">if</span> (failed)</span><br><span class="line">                cancelAcquire(node);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">      <span class="comment">//获取当前节点的上一个节点</span></span><br><span class="line">            <span class="function"><span class="keyword">final</span> Node <span class="title">predecessor</span><span class="params">()</span> <span class="keyword">throws</span> NullPointerException </span>&#123;</span><br><span class="line">            Node p = prev;</span><br><span class="line">            <span class="keyword">if</span> (p == <span class="keyword">null</span>)</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> p;</span><br><span class="line">        &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//获得锁失败时候是否进行park , 也就是阻塞 , 注意这里自旋了一次</span></span><br><span class="line">          <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">shouldParkAfterFailedAcquire</span><span class="params">(Node pred, Node node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ws = pred.waitStatus;<span class="comment">//0</span></span><br><span class="line">        <span class="keyword">if</span> (ws == Node.SIGNAL)<span class="comment">//-1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (ws &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                node.prev = pred = pred.prev;</span><br><span class="line">            &#125; <span class="keyword">while</span> (pred.waitStatus &gt; <span class="number">0</span>);</span><br><span class="line">            pred.next = node;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                compareAndSetWaitStatus(pred, ws, Node.SIGNAL);<span class="comment">//这里将上一个节点的状态设置为-1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//阻塞 ,这里的当前线程状态还是为0  , unfase调用unpark的时候就会唤醒,拿到CPU返回执行</span></span><br><span class="line">          <span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">parkAndCheckInterrupt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        LockSupport.park(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">return</span> Thread.interrupted();</span><br><span class="line">    &#125;</span><br><span class="line">      ======================================================</span><br><span class="line">     <span class="comment">//解锁 </span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span> </span>&#123;sync.release(<span class="number">1</span>); &#125;</span><br><span class="line">      </span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">release</span><span class="params">(<span class="keyword">int</span> arg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (tryRelease(arg)) &#123;</span><br><span class="line">            Node h = head;</span><br><span class="line">            <span class="keyword">if</span> (h != <span class="keyword">null</span> &amp;&amp; h.waitStatus != <span class="number">0</span>)</span><br><span class="line">                unparkSuccessor(h);<span class="keyword">return</span> <span class="keyword">true</span>;&#125; <span class="keyword">return</span> <span class="keyword">false</span>;&#125;</span><br><span class="line">      </span><br><span class="line">          <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">tryRelease</span><span class="params">(<span class="keyword">int</span> arg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">    &#125;</span><br><span class="line">      		<span class="comment">//更改锁的状态</span></span><br><span class="line">              <span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">tryRelease</span><span class="params">(<span class="keyword">int</span> releases)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> c = getState() - releases;</span><br><span class="line">            <span class="keyword">if</span> (Thread.currentThread() != getExclusiveOwnerThread())</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalMonitorStateException();</span><br><span class="line">            <span class="keyword">boolean</span> free = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</span><br><span class="line">                free = <span class="keyword">true</span>;</span><br><span class="line">                setExclusiveOwnerThread(<span class="keyword">null</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            setState(c);</span><br><span class="line">            <span class="keyword">return</span> free;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      	<span class="comment">//传入头结点判断头的下一个节点是否为等待的线程</span></span><br><span class="line">          <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">unparkSuccessor</span><span class="params">(Node node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ws = node.waitStatus;</span><br><span class="line">        <span class="keyword">if</span> (ws &lt; <span class="number">0</span>)</span><br><span class="line">            compareAndSetWaitStatus(node, ws, <span class="number">0</span>);</span><br><span class="line">            <span class="comment">//头部的下一个等待的线程</span></span><br><span class="line">        Node s = node.next;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.waitStatus &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            s = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">for</span> (Node t = tail; t != <span class="keyword">null</span> &amp;&amp; t != node; t = t.prev)</span><br><span class="line">                <span class="keyword">if</span> (t.waitStatus &lt;= <span class="number">0</span>)</span><br><span class="line">                    s = t;</span><br><span class="line">        &#125;</span><br><span class="line">            <span class="comment">//如果头的下个线程不为null , 那么唤醒他</span></span><br><span class="line">        <span class="keyword">if</span> (s != <span class="keyword">null</span>)LockSupport.unpark(s.thread); &#125;</span><br><span class="line">      </span><br><span class="line">      <span class="comment">//唤醒</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">unpark</span><span class="params">(Thread thread)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (thread != <span class="keyword">null</span>)</span><br><span class="line">            UNSAFE.unpark(thread);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中AQS结构是一个类似于双向的链表的结构</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Node head; <span class="comment">//队首</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">volatile</span> Node tail;<span class="comment">//尾</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> state;<span class="comment">//锁状态，加锁成功则为1，重入+1 解锁则为0</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">transient</span> Thread exclusiveOwnerThread;<span class="comment">//持有锁的线程</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span><br><span class="line">    <span class="keyword">volatile</span> Node prev;</span><br><span class="line">    <span class="keyword">volatile</span> Node next;</span><br><span class="line">    <span class="keyword">volatile</span> Thread thread;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>也就是单线程 - 交替执行 , 和队列无关 – jdk级别就能解决同步问题</p>
+<h2 id="AQS无竞争"><a href="#AQS无竞争" class="headerlink" title="AQS无竞争"></a>AQS无竞争</h2><p><img src="https://s1.ax1x.com/2020/03/17/8dPsnH.png" alt="8dPsnH.png"></p>
+<h2 id="AQS存在竞争"><a href="#AQS存在竞争" class="headerlink" title="AQS存在竞争"></a>AQS存在竞争</h2><p><img src="https://s1.ax1x.com/2020/03/21/8hu7tS.png" alt="8hu7tS.png"></p>
+<h3 id="竞争Node结构"><a href="#竞争Node结构" class="headerlink" title="竞争Node结构"></a>竞争Node结构</h3><p><img src="https://s1.ax1x.com/2020/03/21/8hKkc9.png" alt="8hKkc9.png"></p>
+<h2 id="AQS过程"><a href="#AQS过程" class="headerlink" title="AQS过程"></a>AQS过程</h2><p><img src="https://s1.ax1x.com/2020/03/21/8huyFO.png" alt="8huyFO.png"></p>
+
           
         
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>小劉感谢您的赞赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://t1.picb.cc/uploads/2020/02/13/kq1gjw.th.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -286,96 +438,17 @@
   </div>
 </article>
 
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
   
-    <article id="post-数据结构与算法-递归" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	  <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%80%92%E5%BD%92/">数据结构与算法--递归</a>
-    </h1>
   
+    <a href="/2020/03/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%80%92%E5%BD%92/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构与算法--递归</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        
-        <a href="/2020/03/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%80%92%E5%BD%92/" class="archive-article-date">
-  	<time datetime="2020-03-25T15:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
-</a>
-        
-		
-		
-
-      </header>
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-   
-      
-        
-          		<p>递归有助于解决复杂的问题 ,但是容易陷入回溯验证</p>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回溯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -395,782 +468,44 @@
 
 
 
-
-
-
-
-  
-    <article id="post-生成pdf的两种技术-iText和jasper" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	  <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/16/%E7%94%9F%E6%88%90pdf%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8A%80%E6%9C%AF-iText%E5%92%8Cjasper/">生成pdf的两种技术--iText和jasper</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/16/%E7%94%9F%E6%88%90pdf%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8A%80%E6%9C%AF-iText%E5%92%8Cjasper/" class="archive-article-date">
-  	<time datetime="2020-03-16T10:13:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        
-		
-		
-
-      </header>
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-   
-      
-        
-          		<p>PDF生成技术的本章学习记录了两种 , 一种是IText , 一种是jasperReport , 推荐使用jasperReport , 因为通过jasper studio可以快速生产格式</p>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">iText</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Jasper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-写入Excel的两种技术-POI和JXLS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	  <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/14/%E5%86%99%E5%85%A5Excel%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8A%80%E6%9C%AF-POI%E5%92%8CJXLS/">写入Excel的两种技术--POI和JXLS</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/14/%E5%86%99%E5%85%A5Excel%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8A%80%E6%9C%AF-POI%E5%92%8CJXLS/" class="archive-article-date">
-  	<time datetime="2020-03-14T15:25:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        
-		
-		
-
-      </header>
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-   
-      
-        
-          		<p>本章通过POI 和 JXLS 各个技术 ,分别应用于项目中</p>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JXLS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-Freemark静态化页面技术应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	  <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/09/Freemark%E9%9D%99%E6%80%81%E5%8C%96%E9%A1%B5%E9%9D%A2%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8/">Freemarker静态化页面技术应用</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/09/Freemark%E9%9D%99%E6%80%81%E5%8C%96%E9%A1%B5%E9%9D%A2%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-09T09:51:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-09</time>
-</a>
-        
-		
-		
-
-      </header>
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-   
-      
-        
-          		<p>Freemarker静态化页面主要是用于减少查询数据库的频率 , 高并发访问页面 , 每次都会查询数据 , 对服务器的压力非常大 , 可以降少用户访问数据库 , 可以对相对固定的数据生成静态页面</p>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Freemarker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-Java基础-String类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	  <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/07/Java%E5%9F%BA%E7%A1%80-String%E7%B1%BB/">Java基础--String类</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/07/Java%E5%9F%BA%E7%A1%80-String%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-03-07T15:09:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        
-		
-		
-
-      </header>
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-   
-      
-        
-          		<p>回顾String类 , 温故而知新</p>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">String</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-数据结构与算法-栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	  <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E6%A0%88/">数据结构与算法-栈</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E6%A0%88/" class="archive-article-date">
-  	<time datetime="2020-03-01T12:15:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        
-		
-		
-
-      </header>
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-   
-      
-        
-          		<p>栈相当于一个容器 ,有先进后出的特点 , 利用栈的特点可以通过逆波兰表达式(后缀表达式)来对数据表达式进行运算 , 计算难度低于前缀表达式 ;</p>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一般栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">后缀表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-spring监听器与zookeeper的配置中心应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	  <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/01/spring%E7%9B%91%E5%90%AC%E5%99%A8%E4%B8%8Ezookeeper%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E5%BA%94%E7%94%A8/">spring监听器与zookeeper的配置中心应用</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/01/spring%E7%9B%91%E5%90%AC%E5%99%A8%E4%B8%8Ezookeeper%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E5%BA%94%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-01T02:43:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        
-		
-		
-
-      </header>
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-   
-      
-        
-          		<p>记录利用spring监听加载配置属性与zookeeper的配置中心结合 , 达到zookper节点信息改变, 服务器内所有的信息都改变 , 提高效率</p>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">dubbo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-数据结构与算法-链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	  <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%93%BE%E8%A1%A8/">数据结构与算法--链表</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%93%BE%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-02-26T05:39:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-26</time>
-</a>
-        
-		
-		
-
-      </header>
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-   
-      
-        
-          		<p>链表是一种物理<a href="https://baike.baidu.com/item/%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83/8727749" target="_blank" rel="noopener">存储单元</a>上非连续、非顺序的<a href="https://baike.baidu.com/item/%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84/350782" target="_blank" rel="noopener">存储结构</a>，<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0/715313" target="_blank" rel="noopener">数据元素</a>的逻辑顺序是通过链表中的<a href="https://baike.baidu.com/item/%E6%8C%87%E9%92%88/2878304" target="_blank" rel="noopener">指针</a>链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%85%83%E7%B4%A0" target="_blank" rel="noopener">数据元素</a>的数据域，另一个是存储下一个结点地址的<a href="https://baike.baidu.com/item/%E6%8C%87%E9%92%88/2878304" target="_blank" rel="noopener">指针</a>域。 相比于<a href="https://baike.baidu.com/item/%E7%BA%BF%E6%80%A7%E8%A1%A8/3228081" target="_blank" rel="noopener">线性表</a><a href="https://baike.baidu.com/item/%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84/9845234" target="_blank" rel="noopener">顺序结构</a>，操作复杂。由于不必须按顺序存储，链表在插入的时候可以达到O(1)的复杂度，比另一种线性表顺序表快得多，但是查找一个节点或者访问特定编号的节点则需要O(n)的时间，而线性表和顺序表相应的时间复杂度分别是O(logn)和O(1);</p>
-<p>———-&gt;也就是<strong>增删快,查找慢</strong>。</p>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">单向链表</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">双向链表</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">环形单向链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-  
-    <article id="post-数据结构与算法-队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      
-	  <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%98%9F%E5%88%97/">数据结构与算法--队列</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-02-21T07:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        
-		
-		
-
-      </header>
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-   
-      
-        
-          		<p>一般数组队列, 是通过角标的重置来模拟先进先出. </p>
-<p>如果不重置角标,就会出现越界,以及前端空间不能复用的情况 , 为此出现循环队列来复用空间</p>
-          
-        
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">一般队列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环形队列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 </a>
-    </nav>
   
+
+  
+
+  
+
+  
+
+
+
+
+        
+            <section id="comments" class="comments">
+              <style>
+                .comments{margin:30px;padding:10px;background:#fff}
+                @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+              </style>
+              <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "gMjbzdcA5SJmthmDiaNdbaIr-gzGzoHsz",
+        app_key: "hxnI79eJjp4VkO3sIDOC6P1t",
+        placeholder: "亲,赶紧评论一下吧",
+        avatar:"mm",
+    });
+</script>
+          </section>
+        
 
 
           </div>
@@ -1219,8 +554,8 @@ setInterval("createtime()",250);
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
