@@ -8,14 +8,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 稀疏数组 | 爱学习,爱生活</title>
+  <title>设计模式-工厂模式 | 爱学习,爱生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="爱学习,爱生活">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84&#x2F;index.html">
+  <meta name="description" content="工厂模式指程序中甲组件需乙组件进行协助的时候,并不是直接创建乙组件的实例对象性,而是通过乙组件的工厂获得–该工厂可以生成某类型组件的对象. 在这种模式下,甲组件无须与乙组件以硬编码方式耦合在一起,而只需要与乙组件工厂耦合 .">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式-工厂模式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;08&#x2F;29&#x2F;%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F&#x2F;index.html">
 <meta property="og:site_name" content="爱学习,爱生活">
+<meta property="og:description" content="工厂模式指程序中甲组件需乙组件进行协助的时候,并不是直接创建乙组件的实例对象性,而是通过乙组件的工厂获得–该工厂可以生成某类型组件的对象. 在这种模式下,甲组件无须与乙组件以硬编码方式耦合在一起,而只需要与乙组件工厂耦合 .">
 <meta property="og:locale" content="中文">
+<meta property="article:published_time" content="2020-08-29T11:27:46.000Z">
+<meta property="article:modified_time" content="2020-08-29T14:37:25.491Z">
 <meta property="article:author" content="小劉">
+<meta property="article:tag" content="工厂模式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="爱学习,爱生活" type="application/atom+xml">
@@ -216,71 +221,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
-    
+            <article id="post-设计模式-工厂模式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-02-21T07:14:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
+	  <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/">数据结构与算法--稀疏数组</a>
+    <h1 class="article-title" itemprop="name">
+      设计模式-工厂模式
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        <a href="/2020/08/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-08-29T11:27:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-29</time>
+</a>
+        
+		
+		
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+   
+      
+        
           
+            <p>工厂模式指程序中甲组件需乙组件进行协助的时候,并不是直接创建乙组件的实例对象性,而是通过乙组件的工厂获得–该工厂可以生成某类型组件的对象. 在这种模式下,甲组件无须与乙组件以硬编码方式耦合在一起,而只需要与乙组件工厂耦合 .</p>
+<a id="more"></a>
+
+<h1 id="反转依赖"><a href="#反转依赖" class="headerlink" title="反转依赖"></a>反转依赖</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UsbDiskWriter</span></span>&#123;</span><br><span class="line">  <span class="function">pulic <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;.......&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Business</span></span>&#123;</span><br><span class="line">  UsbDiskWriter writer;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Business</span><span class="params">()</span></span>&#123;</span><br><span class="line">    writer = <span class="keyword">new</span> UsbDiskWriter();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;</span><br><span class="line">    writer.save();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//由于Bussines类的方法save()依赖于类UserDiskWriter,如果某天想换掉底层类为FloppyWriter , 则这个Business类没有办法重用 , 必须修改</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FloppyWriter</span></span>&#123;</span><br><span class="line">    <span class="function">pulic <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;.......&#125;</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Business</span></span>&#123;</span><br><span class="line">      FloppyWriter writer;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Business</span><span class="params">()</span></span>&#123;</span><br><span class="line">    writer = <span class="keyword">new</span> FloppyWriter();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;</span><br><span class="line">    writer.save();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//这种改变使得高层Bussiness类依赖于底层类 , 可以将两者抽象出一个接口 , 让Bussiness依赖于这个接口 :</span></span><br><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IWriter</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UsbDiskWriter</span> <span class="keyword">implements</span> <span class="title">IWriter</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;........&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bussniess</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IWriter writer;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Business</span><span class="params">()</span></span>&#123;</span><br><span class="line">      writer = <span class="keyword">new</span> UsbDiskWriter();</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;</span><br><span class="line">    writer.save();</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">//但是上述代码还是耦合性很强 , 源于Bbussiness类使用底层类时是直接创建底层类的实现对象;</span></span><br></pre></td></tr></table></figure>
+<h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IWriter</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UsbDiskWriter</span> <span class="keyword">implements</span> <span class="title">IWriter</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;........&#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FloppyWriter</span> <span class="keyword">implements</span> <span class="title">IWriter</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;........&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//创建工厂</span></span><br><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WriterFactory</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> IWriter <span class="title">getWriter</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="string">"UsbDiskWriter"</span>.equals(name)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UsbDiskWriter();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"FloppyWriter"</span>.equals(name))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FloppyWriter();</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"参数不正确"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">business</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> IWriter writer;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Business</span><span class="params">(String name )</span></span>&#123;</span><br><span class="line">     writer = <span class="keyword">new</span> WriterFactory().getWriter(name); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;</span><br><span class="line">      writer.save();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h1><p>spring 内部实现工厂模式的IOC机制 , 实际上就是IOC容器 , 使用spring开发程序可以完全无理会被调用java类的实现 , 也无须主动创建和定位工厂;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IWriter</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UsbDiskWriter</span> <span class="keyword">implements</span> <span class="title">IWriter</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;........&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlobbyWriter</span> <span class="keyword">implements</span> <span class="title">IWriter</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;........&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bussniess</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IWriter writer;</span><br><span class="line">    <span class="comment">//设置值注入</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWriter</span><span class="params">(IWriter writer)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.writer = writer;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//构造方法注入</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Bussniess</span><span class="params">(IWriter writer)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.writer = writer;</span><br><span class="line">  &#125;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;</span><br><span class="line">    writer.save();</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+          
+        
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>小劉感谢您的赞赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://t1.picb.cc/uploads/2020/02/13/kq1gjw.th.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">稀疏数组</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工厂模式</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        			<a href="/categories/设计模式//" class="article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/03/25/Java%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础-线程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
+
+        
+            <section id="comments" class="comments">
+              <style>
+                .comments{margin:30px;padding:10px;background:#fff}
+                @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+              </style>
+              <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "gMjbzdcA5SJmthmDiaNdbaIr-gzGzoHsz",
+        app_key: "hxnI79eJjp4VkO3sIDOC6P1t",
+        placeholder: "亲,赶紧评论一下吧",
+        avatar:"mm",
+    });
+</script>
+          </section>
+        
 
 
           </div>
@@ -334,9 +457,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
