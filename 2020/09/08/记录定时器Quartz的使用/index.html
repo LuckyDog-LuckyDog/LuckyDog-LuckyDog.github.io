@@ -8,14 +8,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 爱学习,爱生活</title>
+  <title>记录定时器Quartz的使用 | 爱学习,爱生活</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="爱学习,爱生活">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="在开发小程序客服功能的时候 , 需要定时去刷新临时素材media_id , 记录定时器的搭建以及开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录定时器Quartz的使用">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;08&#x2F;%E8%AE%B0%E5%BD%95%E5%AE%9A%E6%97%B6%E5%99%A8Quartz%E7%9A%84%E4%BD%BF%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="爱学习,爱生活">
+<meta property="og:description" content="在开发小程序客服功能的时候 , 需要定时去刷新临时素材media_id , 记录定时器的搭建以及开发">
 <meta property="og:locale" content="中文">
+<meta property="article:published_time" content="2020-09-08T06:33:03.000Z">
+<meta property="article:modified_time" content="2020-09-14T13:06:27.972Z">
 <meta property="article:author" content="小劉">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="定时器">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="爱学习,爱生活" type="application/atom+xml">
@@ -216,572 +222,226 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
-    
+            <article id="post-记录定时器Quartz的使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
       
+	  <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      记录定时器Quartz的使用
+    </h1>
+  
+
+        
+        <a href="/2020/09/08/%E8%AE%B0%E5%BD%95%E5%AE%9A%E6%97%B6%E5%99%A8Quartz%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-09-08T06:33:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
+</a>
+        
+		
+		
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+      </header>
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+   
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/07/Java%E5%9F%BA%E7%A1%80-String%E7%B1%BB/" class="archive-article-date">
-  	<time datetime="2020-03-07T15:09:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/07/Java%E5%9F%BA%E7%A1%80-String%E7%B1%BB/">Java基础--String类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
+        
           
+            <p>在开发小程序客服功能的时候 , 需要定时去刷新临时素材media_id , 记录定时器的搭建以及开发</p>
+<a id="more"></a>
+
+<h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入maven坐标(版本太低,会出现某些方法不兼容导致报错)</span></span><br><span class="line">      &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.quartz-scheduler&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;quartz&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;2.3.0&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.example.demo.定时器;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.quartz.JobDetail;</span><br><span class="line"><span class="keyword">import</span> org.quartz.Scheduler;</span><br><span class="line"><span class="keyword">import</span> org.quartz.Trigger;</span><br><span class="line"><span class="keyword">import</span> org.quartz.impl.StdSchedulerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.quartz.JobBuilder.newJob;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.quartz.SimpleScheduleBuilder.simpleSchedule;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.quartz.TriggerBuilder.newTrigger;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * author:xiaoLiu</span></span><br><span class="line"><span class="comment"> * Description:定时器触发类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuartzTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();</span><br><span class="line"></span><br><span class="line">            JobDetail job = newJob(test<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line">                    .withIdentity("任务名称", "group1")</span><br><span class="line">                    .build();</span><br><span class="line"></span><br><span class="line">            Trigger trigger = newTrigger()</span><br><span class="line">                    .withIdentity(<span class="string">"触发器名称"</span>, <span class="string">"group1"</span>)</span><br><span class="line">                    .startNow()</span><br><span class="line">                    .withSchedule(simpleSchedule()</span><br><span class="line">                            .withIntervalInSeconds(<span class="number">10</span>)</span><br><span class="line">                            .repeatForever())</span><br><span class="line">                    .build();</span><br><span class="line"></span><br><span class="line">            scheduler.scheduleJob(job, trigger);</span><br><span class="line"></span><br><span class="line">            scheduler.start();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定时器任务类</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.定时器;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.quartz.Job;</span><br><span class="line"><span class="keyword">import</span> org.quartz.JobExecutionContext;</span><br><span class="line"><span class="keyword">import</span> org.quartz.JobExecutionException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * author:xiaoLiu</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> <span class="keyword">implements</span> <span class="title">Job</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(JobExecutionContext context)</span> <span class="keyword">throws</span> JobExecutionException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我被定时器执行了"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//quartz.properties配置文件</span></span><br><span class="line">org.quartz.scheduler.instanceName = MyScheduler</span><br><span class="line">org.quartz.threadPool.threadCount = <span class="number">3</span></span><br><span class="line">org.quartz.jobStore<span class="class">.<span class="keyword">class</span> </span>= org.quartz.simpl.RAMJobStore</span><br></pre></td></tr></table></figure>
+
+<p>启动之后 , 可以看到任务大约每隔10s就会被执行一次</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">18</span>:<span class="number">42</span>:<span class="number">30.116</span> [MyScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of <span class="number">1</span> triggers</span><br><span class="line"><span class="number">18</span>:<span class="number">42</span>:<span class="number">30.117</span> [MyScheduler_Worker-<span class="number">1</span>] DEBUG org.quartz.core.JobRunShell - Calling execute on job group1.任务名称</span><br><span class="line">我被定时器执行了</span><br><span class="line"><span class="number">18</span>:<span class="number">42</span>:<span class="number">40.102</span> [MyScheduler_QuartzSchedulerThread] DEBUG org.quartz.simpl.PropertySettingJobFactory - Producing instance of Job <span class="string">'group1.任务名称'</span>, <span class="class"><span class="keyword">class</span></span>=com.example.demo.定时器.test</span><br><span class="line"><span class="number">18</span>:<span class="number">42</span>:<span class="number">40.102</span> [MyScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of <span class="number">1</span> triggers</span><br><span class="line"><span class="number">18</span>:<span class="number">42</span>:<span class="number">40.102</span> [MyScheduler_Worker-<span class="number">2</span>] DEBUG org.quartz.core.JobRunShell - Calling execute on job group1.任务名称</span><br><span class="line">我被定时器执行了</span><br><span class="line"><span class="number">18</span>:<span class="number">42</span>:<span class="number">50.102</span> [MyScheduler_QuartzSchedulerThread] DEBUG org.quartz.simpl.PropertySettingJobFactory - Producing instance of Job <span class="string">'group1.任务名称'</span>, <span class="class"><span class="keyword">class</span></span>=com.example.demo.定时器.test</span><br><span class="line"><span class="number">18</span>:<span class="number">42</span>:<span class="number">50.102</span> [MyScheduler_QuartzSchedulerThread] DEBUG org.quartz.core.QuartzSchedulerThread - batch acquisition of <span class="number">1</span> triggers</span><br><span class="line"><span class="number">18</span>:<span class="number">42</span>:<span class="number">50.102</span> [MyScheduler_Worker-<span class="number">3</span>] DEBUG org.quartz.core.JobRunShell - Calling execute on job group1.任务名称</span><br><span class="line">我被定时器执行了</span><br></pre></td></tr></table></figure>
+
+<h1 id="项目上的搭建"><a href="#项目上的搭建" class="headerlink" title="项目上的搭建"></a>项目上的搭建</h1><h2 id="1-拓展适配任务工厂类"><a href="#1-拓展适配任务工厂类" class="headerlink" title="1. 拓展适配任务工厂类"></a>1. 拓展适配任务工厂类</h2><p>因为Job对象的实例化过程是在Quartz中进行的，Service是在Spring容器当中的，那么如何将他们关联到一起呢 ? <strong>Quartz提供了JobFactory接口</strong>，让我们可以自定义实现创建Job的逻辑。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">JobFactory</span> </span>&#123;</span><br><span class="line">    <span class="function">Job <span class="title">newJob</span><span class="params">(TriggerFiredBundle bundle, Scheduler scheduler)</span> <span class="keyword">throws</span> SchedulerException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>通过实现JobFactory 接口，在实例化Job以后，在通过ApplicationContext 将Job所需要的属性注入即可在Spring与Quartz集成时 用到的org.springframework.scheduling.quartz.SchedulerFactoryBean这个类</strong>。源码如下，我们只看最关键的地方。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Get Scheduler instance from SchedulerFactory.</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.scheduler = createScheduler(schedulerFactory, <span class="keyword">this</span>.schedulerName);</span><br><span class="line">            populateSchedulerContext();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!<span class="keyword">this</span>.jobFactorySet &amp;&amp; !(<span class="keyword">this</span>.scheduler <span class="keyword">instanceof</span> RemoteScheduler)) &#123;</span><br><span class="line">                <span class="comment">// Use AdaptableJobFactory as default for a local Scheduler, unless when</span></span><br><span class="line">                <span class="comment">// explicitly given a null value through the "jobFactory" bean property.</span></span><br><span class="line">                <span class="keyword">this</span>.jobFactory = <span class="keyword">new</span> AdaptableJobFactory();<span class="comment">//←←←←重点</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.jobFactory != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.jobFactory <span class="keyword">instanceof</span> SchedulerContextAware) &#123;</span><br><span class="line">                    ((SchedulerContextAware) <span class="keyword">this</span>.jobFactory).setSchedulerContext(<span class="keyword">this</span>.scheduler.getContext());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.scheduler.setJobFactory(<span class="keyword">this</span>.jobFactory);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>我们不指定jobFactory，那么Spring就使用AdaptableJobFactory。这个类的实现</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.springframework.scheduling.quartz;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.quartz.Job;</span><br><span class="line"><span class="keyword">import</span> org.quartz.Scheduler;</span><br><span class="line"><span class="keyword">import</span> org.quartz.SchedulerException;</span><br><span class="line"><span class="keyword">import</span> org.quartz.spi.JobFactory;</span><br><span class="line"><span class="keyword">import</span> org.quartz.spi.TriggerFiredBundle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.util.ReflectionUtils;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdaptableJobFactory</span> <span class="keyword">implements</span> <span class="title">JobFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Job <span class="title">newJob</span><span class="params">(TriggerFiredBundle bundle, Scheduler scheduler)</span> <span class="keyword">throws</span> SchedulerException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> newJob(bundle);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Job <span class="title">newJob</span><span class="params">(TriggerFiredBundle bundle)</span> <span class="keyword">throws</span> SchedulerException </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Object jobObject = createJobInstance(bundle);</span><br><span class="line">            <span class="keyword">return</span> adaptJob(jobObject);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> SchedulerException(<span class="string">"Job instantiation failed"</span>, ex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">createJobInstance</span><span class="params">(TriggerFiredBundle bundle)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// Reflectively adapting to differences between Quartz 1.x and Quartz 2.0...</span></span><br><span class="line">        Method getJobDetail = bundle.getClass().getMethod(<span class="string">"getJobDetail"</span>);</span><br><span class="line">        Object jobDetail = ReflectionUtils.invokeMethod(getJobDetail, bundle);</span><br><span class="line">        Method getJobClass = jobDetail.getClass().getMethod(<span class="string">"getJobClass"</span>);</span><br><span class="line">        Class jobClass = (Class) ReflectionUtils.invokeMethod(getJobClass, jobDetail);</span><br><span class="line">        <span class="keyword">return</span> jobClass.newInstance();<span class="comment">// ←←←←←重点</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Job <span class="title">adaptJob</span><span class="params">(Object jobObject)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (jobObject <span class="keyword">instanceof</span> Job) &#123;</span><br><span class="line">            <span class="keyword">return</span> (Job) jobObject;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (jobObject <span class="keyword">instanceof</span> Runnable) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> DelegatingJob((Runnable) jobObject);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Unable to execute job class ["</span> + jobObject.getClass().getName() +</span><br><span class="line">                    <span class="string">"]: only [org.quartz.Job] and [java.lang.Runnable] supported."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这里创建了一个Job实例,那就在这里去给Job的属性进行注入就可以了，写一个类继承它，然后复写这个方法进行对Job的注入。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mallparking.common.factory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.quartz.spi.TriggerFiredBundle;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.config.AutowireCapableBeanFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.scheduling.quartz.AdaptableJobFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * author:xiaoLiu</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JobFactory</span> <span class="keyword">extends</span> <span class="title">AdaptableJobFactory</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * AutowireCapableBeanFactory接口是BeanFactory的子类</span></span><br><span class="line"><span class="comment">     * 可以连接和填充那些生命周期不被Spring管理的已存在的bean实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> AutowireCapableBeanFactory factory;</span><br><span class="line">    </span><br><span class="line">	<span class="comment">//这个对象Spring会帮我们自动把类注入进来</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JobFactory</span><span class="params">(AutowireCapableBeanFactory factory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.factory = factory;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建Job实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">createJobInstance</span><span class="params">(TriggerFiredBundle bundle)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 实例化对象</span></span><br><span class="line">        Object job = <span class="keyword">super</span>.createJobInstance(bundle);</span><br><span class="line">        <span class="comment">// 进行注入（Spring管理该Bean）</span></span><br><span class="line">        factory.autowireBean(job);</span><br><span class="line">        <span class="comment">//返回对象</span></span><br><span class="line">        <span class="keyword">return</span> job;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>接下来把自定义注入继承的AdaptableJobFactory配置到Spring当中去 , 然后在去修改SchedulerFactoryBean里面的jobFactory</strong>(见3.2.3)</p>
+<h2 id="2-配置spring-boot下定时器的配置类"><a href="#2-配置spring-boot下定时器的配置类" class="headerlink" title="2. 配置spring-boot下定时器的配置类"></a>2. 配置spring-boot下定时器的配置类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mallparking.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.quartz.Scheduler;</span><br><span class="line"><span class="keyword">import</span> org.quartz.ee.servlet.QuartzInitializerListener;</span><br><span class="line"><span class="keyword">import</span> org.quartz.spi.JobFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.config.PropertiesFactoryBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.scheduling.quartz.SchedulerFactoryBean;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * author:xiaoLiu</span></span><br><span class="line"><span class="comment"> * Description: 配置定时器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SchedulerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JobFactory jobFactory;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 调度类FactoyBean</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span>(<span class="string">"sechduerFactory"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> SchedulerFactoryBean <span class="title">schedulerFactoryBean</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        SchedulerFactoryBean schedulerFactoryBean = <span class="keyword">new</span> SchedulerFactoryBean();</span><br><span class="line">        <span class="comment">//设置调度类quartz属性</span></span><br><span class="line">        schedulerFactoryBean.setQuartzProperties(quartzProperties());</span><br><span class="line">        <span class="comment">//设置jobFactory</span></span><br><span class="line">        schedulerFactoryBean.setJobFactory(jobFactory);</span><br><span class="line">        <span class="keyword">return</span> schedulerFactoryBean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 解析quartz.properties文件，填充属性</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Properties <span class="title">quartzProperties</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        PropertiesFactoryBean propertiesFactoryBean = <span class="keyword">new</span> PropertiesFactoryBean();</span><br><span class="line"><span class="comment">//		propertiesFactoryBean.setLocation(new ClassPathResource("/quartz.properties"));</span></span><br><span class="line">        propertiesFactoryBean.afterPropertiesSet();</span><br><span class="line">        <span class="keyword">return</span> propertiesFactoryBean.getObject();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * quartz初始化监听器</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> QuartzInitializerListener <span class="title">initializerListener</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> QuartzInitializerListener();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据调度类工厂bean获取调度</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span>(<span class="string">"scheduler"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Scheduler <span class="title">scheduler</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> schedulerFactoryBean().getScheduler();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-实践开发"><a href="#3-实践开发" class="headerlink" title="3. 实践开发"></a>3. 实践开发</h2><h3 id="3-1-注解cron表达式开发"><a href="#3-1-注解cron表达式开发" class="headerlink" title="3.1 注解cron表达式开发"></a>3.1 注解cron表达式开发</h3><p>需求是更新数据库中微信临时素材media_id</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * author:xiaoLiu</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@EnableScheduling</span></span><br><span class="line"><span class="meta">@EnableAsync</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Task</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(Task<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SysParamService sysParamService;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RestTemplate restTemplate;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SysParamMapper sysParamMapper;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Async</span></span><br><span class="line">    <span class="meta">@Scheduled</span>(cron = <span class="string">"0 0 1 * * ?"</span>)  <span class="comment">//每天凌晨1点刷新一次</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">refreshMiniAppMediaId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        SysParam sysParam = sysParamService.getValue(SysParamConstant.QUNLIAO_TEMP_MEDIAID);</span><br><span class="line">        String mediaValue = sysParam.getValue();</span><br><span class="line">        <span class="keyword">if</span> (mediaValue == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        String path =  ZJYConfig.MEDIA_TEMPPATH;</span><br><span class="line">        downloadMediaFile(path,mediaValue);</span><br><span class="line">        String media_id = uploadMediaFile( path);</span><br><span class="line">        sysParam.setValue(media_id);</span><br><span class="line">        sysParamMapper.updateByPrimaryKey(sysParam);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">uploadMediaFile</span><span class="params">( String targetPath)</span> </span>&#123;</span><br><span class="line">        logger.info(<span class="string">"上传临时素材"</span>);</span><br><span class="line">        HttpHeaders headers = <span class="keyword">new</span> HttpHeaders();</span><br><span class="line">        String url = WeChatUtil.getMediIdUrl();</span><br><span class="line">        MediaType type = MediaType.parseMediaType(<span class="string">"multipart/form-data"</span>);</span><br><span class="line">        headers.setContentType(type);</span><br><span class="line">        MultiValueMap&lt;String, Object&gt; form = <span class="keyword">new</span> LinkedMultiValueMap&lt;&gt;();</span><br><span class="line">        form.add(<span class="string">"file"</span>, <span class="keyword">new</span> FileSystemResource(targetPath));</span><br><span class="line">        Map&lt;String, String&gt; map = restTemplate.postForObject(url, <span class="keyword">new</span> HttpEntity&lt;&gt;(form, headers), Map<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        String media_id = map.get(<span class="string">"media_id"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Files.delete(Paths.get(targetPath));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> media_id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">downloadMediaFile</span><span class="params">(String targetPath,String mediaId)</span> </span>&#123;</span><br><span class="line">        String url= WeChatUtil.getTempMediaUrl(mediaId);</span><br><span class="line">        ResponseEntity&lt;<span class="keyword">byte</span>[]&gt; entity = restTemplate.exchange(url, HttpMethod.GET, <span class="keyword">new</span> HttpEntity&lt;&gt;(<span class="keyword">new</span> HttpHeaders()), <span class="keyword">byte</span>[]<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            logger.info(<span class="string">"获取临时素材并且放进/tmp/media.jpg"</span>);</span><br><span class="line">            File file = <span class="keyword">new</span> File(targetPath);</span><br><span class="line">            <span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">                file.delete();</span><br><span class="line">            &#125;</span><br><span class="line">            Files.write(Paths.get(targetPath), entity.getBody());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            logger.error(<span class="string">"下载临时素材文件时出错:[&#123;&#125;]"</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-simpleSchedule-cronSchdule开发"><a href="#3-2-simpleSchedule-cronSchdule开发" class="headerlink" title="3.2 simpleSchedule/cronSchdule开发"></a>3.2 simpleSchedule/cronSchdule开发</h3><p>需求是设定某个时间,然后将信息发送出去</p>
+<p>在快速入门的时候 , 有创建一个核心任务调度器Schduler , 为此我们需要创建一个任务的启动或关闭或删除的类,简称任务处理调度类</p>
+<h4 id="3-2-1-声明Schedule-注入scheduler对quartz-Job进行管理"><a href="#3-2-1-声明Schedule-注入scheduler对quartz-Job进行管理" class="headerlink" title="3.2.1. 声明Schedule ,注入scheduler对quartz Job进行管理"></a>3.2.1. 声明Schedule ,注入scheduler对quartz Job进行管理</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MallScheduler</span> <span class="keyword">extends</span> <span class="title">BaseServiceImpl</span> </span>&#123;</span><br><span class="line">    Logger logger = LoggerFactory.getLogger(MallwashScheduler<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RemoteControllerService remoteControllerService;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="meta">@Qualifier</span>(<span class="string">"scheduler"</span>)</span><br><span class="line">    <span class="keyword">private</span> Scheduler scheduler;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">schedulerJob</span><span class="params">()</span> <span class="keyword">throws</span> SchedulerException </span>&#123;</span><br><span class="line">        ApplicationContext annotationContext = SpringUtil.getApplicationContext();</span><br><span class="line">        StdScheduler stdScheduler = (StdScheduler) annotationContext.getBean(<span class="string">"mySchedulerFactoryBean"</span>);<span class="comment">//获得上面创建的bean</span></span><br><span class="line">        Scheduler myScheduler = stdScheduler;</span><br><span class="line"><span class="comment">//        startScheduler1(myScheduler);</span></span><br><span class="line">        myScheduler.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//删除营业时间定时任务</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delTimerJob</span><span class="params">(String code, String businessTime)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isNotEmpty(businessTime)) &#123;</span><br><span class="line">            String[] split = businessTime.split(<span class="string">","</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; split.length; i++) &#123;</span><br><span class="line">                delTimerJob(code, i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">delTimerJob</span><span class="params">(String code, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        delStartBusinessTime(code, i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">delStartBusinessTime</span><span class="params">(String code, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            scheduler.deleteJob(JobKey.jobKey(code + <span class="string">"startJob"</span> + i</span><br><span class="line">                    , code + <span class="string">"jobGroup"</span>));</span><br><span class="line">            scheduler.deleteJob(JobKey.jobKey(code + <span class="string">"stopJob"</span> + i</span><br><span class="line">                    , code + <span class="string">"jobGroup"</span>));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SchedulerException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//新增营业时间定时任务</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addTimerJob</span><span class="params">(String code, String businessTime)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"all"</span>.equals(businessTime)) &#123;</span><br><span class="line">            <span class="comment">//发送MQ</span></span><br><span class="line">            MqDTO changeDTO = <span class="keyword">new</span> MqDTO.Builder(code).buildSimpleCMD(SysParamConstant.SITE_INOPERATION);</span><br><span class="line">            MqDTO ledDTO = <span class="keyword">new</span> MqDTO.Builder(code).buildCmd(SysParamConstant.SHOW_LED, <span class="string">"洗车"</span>, <span class="string">""</span>);</span><br><span class="line">            remoteControllerService.sendMQ(changeDTO, SysParamConstant.TOPIC_CMD_V1, <span class="keyword">null</span>);</span><br><span class="line">            remoteControllerService.sendMQ(ledDTO, SysParamConstant.TOPIC_CMD_V1, <span class="keyword">null</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] split = businessTime.split(<span class="string">","</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; split.length; i++) &#123;</span><br><span class="line">            addsingleBusinessTime(split[i], code, i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addsingleBusinessTime</span><span class="params">(String singlebusinessTime, String code, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        String[] time = singlebusinessTime.split(<span class="string">"_"</span>);</span><br><span class="line">        String startTime = time[<span class="number">0</span>];</span><br><span class="line">        String stopTime = time[<span class="number">1</span>];</span><br><span class="line">        addStartBusinessTime(startTime, code, i);</span><br><span class="line">        addStopBusinessTime(stopTime, code, i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addStartBusinessTime</span><span class="params">(String startTime, String code, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        JobDetail jobDetail = JobBuilder.newJob(StartBusinessTask.class).withIdentity(code + "startJob" + i, code + "jobGroup").build();</span><br><span class="line">        jobDetail.getJobDataMap().put(<span class="string">"code"</span>, code);</span><br><span class="line">        String[] time = startTime.split(<span class="string">":"</span>);</span><br><span class="line">        <span class="keyword">int</span> hour = Integer.parseInt(time[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">int</span> min = Integer.parseInt(time[<span class="number">1</span>]);</span><br><span class="line">        String cron = <span class="string">"0 "</span> + min + <span class="string">" "</span> + hour + <span class="string">" * * ?"</span>;<span class="comment">//0 0 22 * * ?</span></span><br><span class="line">        logger.info(code + <span class="string">"startCron表达式:&#123;&#125;"</span>, cron);</span><br><span class="line">        CronScheduleBuilder cronScheduleBuilder;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            cronScheduleBuilder = CronScheduleBuilder.cronSchedule(cron);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            logger.error(<span class="string">"[定时任务表达式错误]:"</span>, e);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity(code + <span class="string">"startTrigger"</span> + i, code + <span class="string">"triggerGroup"</span>)</span><br><span class="line">                .withSchedule(cronScheduleBuilder).build();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            scheduler.scheduleJob(jobDetail, trigger);</span><br><span class="line">            scheduler.start();<span class="comment">// 触发器并不会立刻触发</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (SchedulerException e) &#123;</span><br><span class="line">            logger.error(<span class="string">"[定时任务初始化错误]:"</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addStopBusinessTime</span><span class="params">(String stopTime, String code, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        JobDetail jobDetail = JobBuilder.newJob(StopBusinessTask.class).withIdentity(code + "stopJob" + i, code + "jobGroup").build();</span><br><span class="line">        jobDetail.getJobDataMap().put(<span class="string">"code"</span>, code);</span><br><span class="line">        String[] time = stopTime.split(<span class="string">":"</span>);</span><br><span class="line">        <span class="keyword">int</span> hour = Integer.parseInt(time[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">int</span> min = Integer.parseInt(time[<span class="number">1</span>].equals(<span class="string">"00"</span>) ? <span class="string">"0"</span> : time[<span class="number">1</span>]);</span><br><span class="line">        String cron = <span class="string">"0 "</span> + min + <span class="string">" "</span> + hour + <span class="string">" * * ?"</span>;<span class="comment">//0 0 22 * * ?</span></span><br><span class="line">        logger.info(code + <span class="string">"stopCron表达式:&#123;&#125;"</span>, cron);</span><br><span class="line">        CronScheduleBuilder cronScheduleBuilder = <span class="keyword">null</span>;</span><br><span class="line">        cronScheduleBuilder = CronScheduleBuilder.cronSchedule(cron);</span><br><span class="line">        CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity(code + <span class="string">"stopTrigger"</span> + i, code + <span class="string">"triggerGroup"</span>)</span><br><span class="line">                .withSchedule(cronScheduleBuilder).build();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            scheduler.scheduleJob(jobDetail, trigger);</span><br><span class="line">            scheduler.start();<span class="comment">// 触发器并不会立刻触发</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (SchedulerException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置时间定时推送</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> param</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addPushTime</span><span class="params">(EWxMsgTask2Param param)</span> </span>&#123;</span><br><span class="line">        logger.info(<span class="string">"任务实体&#123;&#125;"</span>,param);</span><br><span class="line">        String startTime = param.getStartTime();</span><br><span class="line">        JobDetail jobDetail = JobBuilder.newJob(StartPushTask.class).withIdentity(startTime + "pushJob", startTime + "jobGroup").build();</span><br><span class="line">        jobDetail.getJobDataMap().put(<span class="string">"ids"</span>, param.getIds());</span><br><span class="line">        jobDetail.getJobDataMap().put(<span class="string">"quaId"</span>, param.getQuaId());</span><br><span class="line">        jobDetail.getJobDataMap().put(<span class="string">"type"</span>,param.getType() );</span><br><span class="line">        jobDetail.getJobDataMap().put(<span class="string">"sendType"</span>, param.getSendType());</span><br><span class="line">        jobDetail.getJobDataMap().put(<span class="string">"quartz"</span>, param.getQuartz());</span><br><span class="line">        Date date = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span>(startTime!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">                date = sdf.parse(startTime);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">                logger.info(<span class="string">"开始时间解析异常"</span>);</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        logger.info(<span class="string">"任务开始的时间[&#123;&#125;]"</span>,date);</span><br><span class="line">        <span class="keyword">if</span> (date != <span class="keyword">null</span>) &#123;</span><br><span class="line">            SimpleScheduleBuilder simpleScheduleBuilder = SimpleScheduleBuilder.simpleSchedule();</span><br><span class="line">            <span class="comment">//时间到了就执行一次</span></span><br><span class="line">            SimpleTrigger trigger = TriggerBuilder.newTrigger().withIdentity(startTime + <span class="string">"pushTrigger"</span>, startTime + <span class="string">"triggerGroup"</span>).startAt(date)</span><br><span class="line">                    .withSchedule(simpleScheduleBuilder).build();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                scheduler.scheduleJob(jobDetail, trigger);</span><br><span class="line">                scheduler.start();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (SchedulerException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-spring-boot启动的时候-需要将任务加载进定时器"><a href="#3-2-2-spring-boot启动的时候-需要将任务加载进定时器" class="headerlink" title="3.2.2. spring-boot启动的时候,需要将任务加载进定时器"></a>3.2.2. spring-boot启动的时候,需要将任务加载进定时器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 启动的时候将任务添加</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuartzApplicationRunner2</span> <span class="keyword">implements</span> <span class="title">ApplicationRunner</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> MallwashScheduler mallwashScheduler;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> WXQuartzRespority wxQuartzRespority;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(ApplicationArguments args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Logger log = LoggerFactory.getLogger(MallwashScheduler<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        List&lt;WXQuartEntity&gt; wxQuartEntityList = wxQuartzRespority.findBySendFlag(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(wxQuartEntityList!=<span class="keyword">null</span>&amp;&amp;wxQuartEntityList.size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            wxQuartEntityList.stream().forEach(e-&gt;&#123;</span><br><span class="line">                log.info(<span class="string">"启动开始将未发送加入定时任务数据[&#123;&#125;]"</span>,e);</span><br><span class="line">                EWxMsgTask2Param eWxMsgTask2Param = <span class="keyword">new</span> EWxMsgTask2Param();</span><br><span class="line">                String startTime = e.getStartTime();</span><br><span class="line">                eWxMsgTask2Param.setStartTime(startTime);</span><br><span class="line">                eWxMsgTask2Param.setIds(e.getUser_ids());</span><br><span class="line">                eWxMsgTask2Param.setQuaId(e.getId());</span><br><span class="line">                eWxMsgTask2Param.setType(e.getType());</span><br><span class="line">                eWxMsgTask2Param.setSendType(<span class="number">1</span>);</span><br><span class="line">                mallwashScheduler.addPushTime(eWxMsgTask2Param);<span class="comment">// 这里将实体传给上述的addPushTime,通过.start进行执行</span></span><br><span class="line">                log.info(<span class="string">"已加入定时任务实体[&#123;&#125;]"</span>,eWxMsgTask2Param);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-3-设置spring-boot启动监听"><a href="#3-2-3-设置spring-boot启动监听" class="headerlink" title="3.2.3. 设置spring-boot启动监听"></a>3.2.3. 设置spring-boot启动监听</h4><p>任务启动的时候,将多个任务一起执行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:多任务一起执行</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: xiaoLiu</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationStartQuartzJobListener</span> <span class="keyword">implements</span> <span class="title">ApplicationListener</span>&lt;<span class="title">ContextRefreshedEvent</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    MallScheduler mallScheduler;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    JobFactory jobFactory;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onApplicationEvent</span><span class="params">(ContextRefreshedEvent contextRefreshedEvent)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            mallScheduler.schedulerJob();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SchedulerException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span>(name = <span class="string">"mySchedulerFactoryBean"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> SchedulerFactoryBean <span class="title">mySchedulerFactory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        SchedulerFactoryBean bean = <span class="keyword">new</span> SchedulerFactoryBean();</span><br><span class="line">        bean.setOverwriteExistingJobs(<span class="keyword">true</span>);</span><br><span class="line">        bean.setStartupDelay(<span class="number">1</span>);</span><br><span class="line">        bean.setJobFactory(jobFactory);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><a href="https://www.cnblogs.com/daxin/p/3608320.html" target="_blank" rel="noopener">https://www.cnblogs.com/daxin/p/3608320.html</a></li>
+<li><a href="https://www.w3cschool.cn/quartz_doc/quartz_doc-2put2clm.html" target="_blank" rel="noopener">https://www.w3cschool.cn/quartz_doc/quartz_doc-2put2clm.html</a></li>
+<li><a href="https://blog.csdn.net/lyg_come_on/article/details/78223344" target="_blank" rel="noopener">https://blog.csdn.net/lyg_come_on/article/details/78223344</a></li>
+</ol>
+
+          
+        
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>小劉感谢您的赞赏<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://t1.picb.cc/uploads/2020/02/13/kq1gjw.th.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">String</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E6%A0%88/" class="archive-article-date">
-  	<time datetime="2020-03-01T12:15:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E6%A0%88/">数据结构与算法-栈</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">一般栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">后缀表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/01/spring%E7%9B%91%E5%90%AC%E5%99%A8%E4%B8%8Ezookeeper%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E5%BA%94%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-01T02:43:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/01/spring%E7%9B%91%E5%90%AC%E5%99%A8%E4%B8%8Ezookeeper%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E5%BA%94%E7%94%A8/">spring监听器与zookeeper的配置中心应用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">dubbo</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">定时器</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java/Quartz//" class="article-tag-list-link color2">Quartz</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%93%BE%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-02-26T05:39:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/02/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B-MyBaties-Generator/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">逆向工程-MyBaties Generator</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%93%BE%E8%A1%A8/">数据结构与算法--链表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">单向链表</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">双向链表</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">环形单向链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-02-21T07:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E9%98%9F%E5%88%97/">数据结构与算法--队列</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">一般队列</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环形队列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-02-21T07:14:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/">数据结构与算法--稀疏数组</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">稀疏数组</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/%E8%87%AA%E5%AE%9A%E4%B9%89SpringIOC%E9%99%8D%E4%BD%8E%E7%B1%BB%E8%80%A6%E5%90%88/" class="archive-article-date">
-  	<time datetime="2020-02-13T07:20:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/%E8%87%AA%E5%AE%9A%E4%B9%89SpringIOC%E9%99%8D%E4%BD%8E%E7%B1%BB%E8%80%A6%E5%90%88/">自定义SpringIOC降低类耦合</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">invoke</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">多态</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">xml</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/11/%E5%9F%BA%E4%BA%8E%E8%87%AA%E5%88%B6SpringMvc%E6%A1%86%E6%9E%B6%E7%9A%84%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2020-02-11T07:54:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/11/%E5%9F%BA%E4%BA%8E%E8%87%AA%E5%88%B6SpringMvc%E6%A1%86%E6%9E%B6%E7%9A%84%E6%9D%83%E9%99%90%E6%A0%A1%E9%AA%8C/">基于自制SpringMvc框架的权限校验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">invoke</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/14/%E8%87%AA%E5%AE%9A%E4%B9%89SpringMvc%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/" class="archive-article-date">
-  	<time datetime="2020-01-14T13:33:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/14/%E8%87%AA%E5%AE%9A%E4%B9%89SpringMvc%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6/">自定义SpringMvc基本框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Tomcat</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">invoke</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">annotation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/13/MyBaits%E6%8A%80%E6%9C%AF/" class="archive-article-date">
-  	<time datetime="2020-01-13T09:55:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/13/MyBaits%E6%8A%80%E6%9C%AF/">MyBaits技术</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MyBaits</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">上一页</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">下一页</a>
-    </nav>
   
+
+  
+
+  
+
+
+
+
+        
+            <section id="comments" class="comments">
+              <style>
+                .comments{margin:30px;padding:10px;background:#fff}
+                @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+              </style>
+              <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "gMjbzdcA5SJmthmDiaNdbaIr-gzGzoHsz",
+        app_key: "hxnI79eJjp4VkO3sIDOC6P1t",
+        placeholder: "亲,赶紧评论一下吧",
+        avatar:"mm",
+    });
+</script>
+          </section>
+        
 
 
           </div>
@@ -835,8 +495,8 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
