@@ -5,7 +5,7 @@ tags:
 - mybaits
 - 逆向工程
 categories:
-- java
+- Java
 ---
 
 之前项目是hibernate通过实体创建表 , 记录MyBatis Generator通过sql语句创建表之后 , 逆向生成实体及方法
